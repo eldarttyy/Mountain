@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PeakBook — Results, mobile</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F7F4ED}
+*{box-sizing:border-box}
+a{color:#173F35}a:hover{color:#0E2A23}
+:focus-visible{outline:3px solid #173F35;outline-offset:3px}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: 1600px; overflow: hidden; font-family: Inter, system-ui, sans-serif; color: #202925; font-size: 16px; line-height: 1.5; background: #F7F4ED">
+  <div style="background: #F7F4ED; border-bottom: 1px solid #E3DDD0; padding: 10px 16px 12px; display: grid; gap: 10px">
+    <div style="display: flex; gap: 10px; align-items: center">
+      <a href="MHome.dc.html" aria-label="Back" style="width: 44px; height: 44px; display: grid; place-items: center; border-radius: 22px"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#202925" stroke-width="2" aria-hidden="true"><path d="M12 4l-6 6 6 6"/></svg></a>
+      <button style="flex: 1; min-height: 48px; text-align: left; padding: 4px 14px; border: 1px solid #D6CFBF; border-radius: 14px; background: #FFFDF8; font: 400 13px Inter, sans-serif; color: #57605B; line-height: 1.3"><b style="display: block; font-size: 15px; color: #202925">Karakol &amp; nearby</b>3–5 Jul · 3 travelers · Any type</button>
+    </div>
+    <div style="display: flex; gap: 8px">
+      <a href="MFilters.dc.html" style="display: inline-flex; gap: 8px; align-items: center; min-height: 44px; padding: 0 14px; border: 1px solid #202925; border-radius: 10px; color: #202925; font-weight: 600; font-size: 14px; text-decoration: none"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#202925" stroke-width="1.8" aria-hidden="true"><path d="M3 6h14M6 10h8M8 14h4"/></svg>Filters · 2</a>
+      <button style="min-height: 44px; padding: 0 14px; border: 1px solid #D6CFBF; border-radius: 10px; background: transparent; font: 500 14px Inter, sans-serif; color: #202925">Sort: Soonest</button>
+      <button style="min-height: 44px; padding: 0 14px; border: 1px solid #D6CFBF; border-radius: 10px; background: transparent; font: 500 14px Inter, sans-serif; color: #202925">Compare (2)</button>
+    </div>
+  </div>
+
+  <p style="margin: 14px 16px 10px; font-size: 14px; color: #57605B"><b style="color: #202925">5 trips available</b> · totals for 3 travelers</p>
+
+  <ul style="list-style: none; margin: 0; padding: 0 16px; display: grid; gap: 22px">
+    <sc-for list="{{results}}" as="r" hint-placeholder-count="3">
+      <li style="display: grid; gap: 10px">
+        <div style="position: relative">
+          <img src="{{r.img}}" alt="" style="width: 100%; height: 220px; object-fit: cover; border-radius: 16px; display: block">
+          <button aria-label="Save {{r.title}}" style="position: absolute; top: 10px; right: 10px; width: 44px; height: 44px; border-radius: 22px; border: 0; background: rgba(247,244,237,0.94); display: grid; place-items: center"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#202925" stroke-width="1.8" aria-hidden="true"><path d="M10 17s-7-4.3-7-9a4 4 0 017-2.6A4 4 0 0117 8c0 4.7-7 9-7 9z"/></svg></button>
+          <span style="position: absolute; left: 10px; bottom: 10px; background: rgba(247,244,237,0.94); font-size: 11px; padding: 2px 8px; border-radius: 6px">Sample listing</span>
+        </div>
+        <div style="display: grid; gap: 3px">
+          <span style="font-size: 14px; color: #57605B">{{r.meta}}</span>
+          <a href="{{r.href}}" style="font-size: 18px; font-weight: 600; color: #202925; text-decoration: none; line-height: 1.3">{{r.title}}</a>
+          <span style="font-size: 14px; color: #3A433E">With {{r.host}} · {{r.reviews}}</span>
+          <span style="font-size: 14px; color: #3A433E">{{r.avail}}</span>
+          <span style="font-size: 16px; margin-top: 4px"><b>{{r.total}}</b> <span style="color: #57605B; font-size: 14px">{{r.unit}}</span></span>
+          <span style="font-size: 14px; font-weight: 600">{{r.confirm}}</span>
+          <span style="font-size: 14px; color: #3A433E">{{r.pay}} · {{r.cancel}}</span>
+        </div>
+      </li>
+    </sc-for>
+  </ul>
+
+  <a href="#" style="position: absolute; left: 50%; transform: translateX(-50%); bottom: 28px; display: inline-flex; gap: 8px; align-items: center; min-height: 52px; padding: 0 22px; border-radius: 26px; background: #173F35; color: #F7F4ED; font-weight: 600; text-decoration: none; box-shadow: 0 8px 22px rgba(23,63,53,0.3)"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#F7F4ED" stroke-width="1.8" aria-hidden="true"><path d="M2 5l5-2 6 2 5-2v12l-5 2-6-2-5 2z"/><path d="M7 3v12M13 5v12"/></svg>Map</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      results: [
+        { title: 'Ala-Kul Lake Pass Trek', meta: 'Trek · Karakol · 3 days · Hard · 3,860 m', host: 'Aibek', reviews: 'No reviews yet', avail: 'Sat 3 Jul · 5 of 8 seats open', total: '46,500 KGS', unit: 'total · 15,500 per traveler', confirm: 'Host approval required', pay: 'Online or cash', cancel: 'Free cancel until 26 Jun', img: '/_blob/6514768c259ead1e4dc29b8aa47d2610', href: 'A1Trek.dc.html' },
+        { title: 'Jeti-Oguz Red Rocks Day Hike', meta: 'Day trip · Jeti-Oguz · 1 day · Easy', host: 'Aibek', reviews: 'No reviews yet', avail: 'Sat 3 or Sun 4 Jul · transport included', total: '9,000 KGS', unit: 'total · 3,000 per traveler', confirm: 'Instant confirmation', pay: 'Online or cash', cancel: 'Free cancel until 24 h before', img: '/_blob/92b1fb0809939e45b8cf673447d73531', href: 'A1Trek.dc.html' },
+        { title: 'Altyn-Arashan Horse Ride', meta: 'Horse riding · Ak-Suu · 2 days · Moderate', host: 'Nurlan', reviews: 'No reviews yet', avail: 'Sat 3 Jul · 3 of 6 horses open', total: '39,000 KGS', unit: 'total · 13,000 per rider', confirm: 'Host approval required', pay: 'Cash to host only', cancel: 'Free cancel until 30 Jun', img: '/_blob/61bcb25425162816ad2e329e6920e439', href: 'A1Trek.dc.html' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

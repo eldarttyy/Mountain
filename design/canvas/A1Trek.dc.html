@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PeakBook — Trek detail, choose date, mobile</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F7F4ED}
+*{box-sizing:border-box}
+a{color:#173F35}a:hover{color:#0E2A23}
+:focus-visible{outline:3px solid #173F35;outline-offset:3px}
+input[type=checkbox]{width:22px;height:22px;accent-color:#173F35;margin:0;flex:none}
+summary{cursor:pointer}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: 2100px; overflow: hidden; font-family: Inter, system-ui, sans-serif; color: #202925; font-size: 16px; line-height: 1.5; background: #F7F4ED">
+  <div style="position: relative">
+    <img src="/_blob/6514768c259ead1e4dc29b8aa47d2610" alt="Ala-Kul lake below snowy peaks (sample illustration)" style="width: 390px; height: 300px; object-fit: cover; display: block">
+    <a href="MSearch.dc.html" aria-label="Back to results" style="position: absolute; top: 12px; left: 12px; width: 44px; height: 44px; border-radius: 22px; background: rgba(247,244,237,0.95); display: grid; place-items: center"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#202925" stroke-width="2" aria-hidden="true"><path d="M12 4l-6 6 6 6"/></svg></a>
+    <span style="position: absolute; top: 12px; right: 12px; display: flex; gap: 8px">
+      <button aria-label="Share" style="width: 44px; height: 44px; border-radius: 22px; border: 0; background: rgba(247,244,237,0.95); display: grid; place-items: center"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#202925" stroke-width="1.8" aria-hidden="true"><path d="M10 13V3M6 7l4-4 4 4M4 12v5h12v-5"/></svg></button>
+      <button aria-label="Save" style="width: 44px; height: 44px; border-radius: 22px; border: 0; background: rgba(247,244,237,0.95); display: grid; place-items: center"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#202925" stroke-width="1.8" aria-hidden="true"><path d="M10 17s-7-4.3-7-9a4 4 0 017-2.6A4 4 0 0117 8c0 4.7-7 9-7 9z"/></svg></button>
+    </span>
+    <span style="position: absolute; right: 12px; bottom: 12px; background: rgba(32,41,37,0.75); color: #F7F4ED; font-size: 13px; padding: 4px 10px; border-radius: 8px">1 / 9 · sample</span>
+  </div>
+
+  <div style="padding: 18px 16px 0; display: grid; gap: 22px">
+    <div>
+      <p style="margin: 0 0 4px; font-size: 14px; color: #57605B">Trek · Karakol · Каракол</p>
+      <h1 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 38px; font-weight: 600; line-height: 1.02; color: #173F35">Ala-Kul Lake Pass Trek</h1>
+      <p style="margin: 8px 0 0; font-size: 15px; color: #3A433E">3 days · Hard · max 3,860 m · shared group, max 8 · ages 14+</p>
+      <p style="margin: 4px 0 0; font-size: 15px; display: flex; gap: 8px; align-items: center; font-weight: 600"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="#202925" stroke-width="1.8" aria-hidden="true"><circle cx="10" cy="7" r="3.5"/><path d="M3.5 18c.8-3.5 3.4-5 6.5-5s5.7 1.5 6.5 5"/></svg>Host approval required · within 48 h</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 12px; align-items: center; padding: 14px 0; border-top: 1px solid #E3DDD0; border-bottom: 1px solid #E3DDD0">
+      <span aria-hidden="true" style="width: 52px; height: 52px; border-radius: 26px; background: #173F35; color: #F7F4ED; display: grid; place-items: center; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; font-weight: 600">AT</span>
+      <span><b>Aibek Toktogulov</b> · guide<br><span style="font-size: 14px; color: #3A433E">English, Русский, Кыргызча · ID verified · first-aid cert. not yet verified</span></span>
+    </div>
+
+    <section aria-labelledby="dh">
+      <h2 id="dh" style="margin: 0 0 4px; font-size: 20px">Choose a date</h2>
+      <p style="margin: 0 0 12px; font-size: 14px; color: #57605B">July 2027 · live seats</p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px">
+        <button aria-pressed="true" style="min-height: 64px; border-radius: 12px; border: 2px solid #173F35; background: #FFFDF8; text-align: left; padding: 8px 12px; font: 400 14px Inter, sans-serif; color: #202925"><b style="font-size: 16px">Sat 3 Jul</b><br>5 of 8 seats open</button>
+        <button style="min-height: 64px; border-radius: 12px; border: 1px solid #D6CFBF; background: #FFFDF8; text-align: left; padding: 8px 12px; font: 400 14px Inter, sans-serif; color: #202925"><b style="font-size: 16px">Sat 10 Jul</b><br>8 of 8 seats open</button>
+        <button style="min-height: 64px; border-radius: 12px; border: 1px solid #D6CFBF; background: #FFFDF8; text-align: left; padding: 8px 12px; font: 400 14px Inter, sans-serif; color: #202925"><b style="font-size: 16px">Sat 17 Jul</b><br>2 of 8 seats open</button>
+        <button disabled style="min-height: 64px; border-radius: 12px; border: 1px dashed #CFC7B6; background: transparent; text-align: left; padding: 8px 12px; font: 400 14px Inter, sans-serif; color: #57605B"><b style="font-size: 16px">Sat 24 Jul</b><br>Full · waitlist</button>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 16px"><span><b>Travelers</b><br><span style="font-size: 14px; color: #57605B">15,500 KGS each</span></span><span style="display: flex; align-items: center; gap: 14px"><button aria-label="Fewer travelers" style="width: 44px; height: 44px; border-radius: 22px; border: 1px solid #202925; background: transparent; font: 500 20px Inter, sans-serif">−</button><b aria-live="polite">3</b><button aria-label="More travelers" style="width: 44px; height: 44px; border-radius: 22px; border: 1px solid #202925; background: transparent; font: 500 20px Inter, sans-serif">+</button></span></div>
+      <div style="display: grid; gap: 2px; margin-top: 14px">
+        <label style="display: flex; gap: 12px; align-items: center; justify-content: space-between; min-height: 48px"><span style="display: flex; gap: 12px; align-items: center"><input type="checkbox" checked> Hotel pickup, per group</span><span>1,500</span></label>
+        <label style="display: flex; gap: 12px; align-items: center; justify-content: space-between; min-height: 48px"><span style="display: flex; gap: 12px; align-items: center"><input type="checkbox" checked> Sleeping bag rental × 1</span><span>600</span></label>
+      </div>
+    </section>
+
+    <section>
+      <h2 style="margin: 0 0 8px; font-size: 20px">Overview</h2>
+      <p style="margin: 0; color: #3A433E">Up through spruce forest, over the 3,860 m pass to the turquoise lake, down to the Altyn-Arashan hot springs. Long days and real altitude.</p>
+    </section>
+
+    <div style="border-top: 1px solid #E3DDD0">
+      <details open style="border-bottom: 1px solid #E3DDD0; padding: 14px 0"><summary style="font-weight: 600; font-size: 17px; min-height: 28px">Day by day</summary>
+        <ol style="margin: 10px 0 0; padding-left: 20px; display: grid; gap: 8px; color: #3A433E; font-size: 15px"><li><b>Day 1</b> · 07:30 pickup, 6 h to Sirota camp (3,100 m)</li><li><b>Day 2</b> · Over the pass (3,860 m), 8 h, camp at hot springs</li><li><b>Day 3</b> · 4 h down the valley, back by 16:00</li></ol></details>
+      <details style="border-bottom: 1px solid #E3DDD0; padding: 14px 0"><summary style="font-weight: 600; font-size: 17px; min-height: 28px">Included &amp; not included</summary></details>
+      <details style="border-bottom: 1px solid #E3DDD0; padding: 14px 0"><summary style="font-weight: 600; font-size: 17px; min-height: 28px">Meeting point &amp; pickup</summary></details>
+      <details style="border-bottom: 1px solid #E3DDD0; padding: 14px 0"><summary style="font-weight: 600; font-size: 17px; min-height: 28px">Fitness, altitude, equipment</summary></details>
+      <details style="border-bottom: 1px solid #E3DDD0; padding: 14px 0"><summary style="font-weight: 600; font-size: 17px; min-height: 28px">Meals &amp; diets</summary></details>
+      <details open style="border-bottom: 1px solid #E3DDD0; padding: 14px 0"><summary style="font-weight: 600; font-size: 17px; min-height: 28px">Cancellation &amp; weather</summary>
+        <ul style="margin: 10px 0 0; padding-left: 20px; display: grid; gap: 6px; color: #3A433E; font-size: 15px"><li>Free cancellation until <b>Sat 26 Jun</b>; no refund after.</li><li>Pass closed by snow: new date or full refund.</li><li>Host declines or no reply in 48 h: nothing charged.</li></ul></details>
+      <details style="border-bottom: 1px solid #E3DDD0; padding: 14px 0"><summary style="font-weight: 600; font-size: 17px; min-height: 28px">Reviews · none yet</summary></details>
+    </div>
+  </div>
+
+  <div role="region" aria-label="Booking summary" style="position: absolute; left: 0; right: 0; bottom: 0; background: #FFFDF8; border-top: 1px solid #E3DDD0; padding: 12px 16px 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px; box-shadow: 0 -6px 18px rgba(32,41,37,0.06)">
+    <span style="font-variant-numeric: tabular-nums; line-height: 1.3"><b style="font-size: 18px">48,600 KGS</b><br><span style="font-size: 13px; color: #3A433E">Sat 3 Jul · 3 travelers · incl. extras</span></span>
+    <a href="A2Details.dc.html" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 24px; border-radius: 12px; background: #173F35; color: #F7F4ED; font-weight: 600; text-decoration: none">Continue</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":2100}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

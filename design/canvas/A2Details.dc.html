@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PeakBook — Traveler details, mobile</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F7F4ED}
+*{box-sizing:border-box}
+a{color:#173F35}a:hover{color:#0E2A23}
+:focus-visible{outline:3px solid #173F35;outline-offset:3px}
+input[type=radio]{width:22px;height:22px;accent-color:#173F35;margin:0;flex:none}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: 1300px; overflow: hidden; font-family: Inter, system-ui, sans-serif; color: #202925; font-size: 16px; line-height: 1.45; background: #F7F4ED">
+  <header style="display: flex; align-items: center; gap: 8px; padding: 8px 16px 8px 8px; border-bottom: 1px solid #E3DDD0">
+    <a href="A1Trek.dc.html" aria-label="Back to trip" style="width: 44px; height: 44px; display: grid; place-items: center"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#202925" stroke-width="2" aria-hidden="true"><path d="M12 4l-6 6 6 6"/></svg></a>
+    <span style="flex: 1"><b>Your details</b><br><span style="font-size: 13px; color: #57605B">Step 2 of 4 · Ala-Kul Trek · Sat 3 Jul · 3 travelers</span></span>
+  </header>
+  <div role="progressbar" aria-valuenow="2" aria-valuemin="1" aria-valuemax="4" aria-label="Step 2 of 4" style="height: 4px; background: #E3DDD0"><div style="width: 50%; height: 4px; background: #173F35"></div></div>
+
+  <form style="padding: 20px 16px 0; display: grid; gap: 18px">
+    <p style="margin: 0; font-size: 13px; color: #57605B; display: flex; gap: 8px; align-items: center"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="#57605B" stroke-width="1.8" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>Saved on this phone as you type. Safe to lose signal.</p>
+
+    <label style="display: grid; gap: 6px; font-size: 14px; font-weight: 600">Lead traveler, as on passport<input autocomplete="name" value="Lena Hoffmann" style="min-height: 48px; padding: 0 14px; border: 1px solid #CFC7B6; border-radius: 10px; background: #FFFDF8; font: 400 16px Inter, sans-serif"></label>
+    <label style="display: grid; gap: 6px; font-size: 14px; font-weight: 600">Email<input type="email" autocomplete="email" value="lena.hoffmann@mail.de" style="min-height: 48px; padding: 0 14px; border: 1px solid #CFC7B6; border-radius: 10px; background: #FFFDF8; font: 400 16px Inter, sans-serif"></label>
+    <div style="display: grid; gap: 6px">
+      <span id="pl" style="font-size: 14px; font-weight: 600">Mobile phone</span>
+      <div role="group" aria-labelledby="pl" style="display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 8px">
+        <select aria-label="Country code" style="min-height: 48px; padding: 0 10px; border: 1px solid #CFC7B6; border-radius: 10px; background: #FFFDF8; font: 400 16px Inter, sans-serif"><option>DE +49</option><option>KG +996</option><option>KZ +7</option></select>
+        <input type="tel" autocomplete="tel-national" aria-label="Phone number" value="170 1234567" style="min-height: 48px; padding: 0 14px; border: 1px solid #CFC7B6; border-radius: 10px; background: #FFFDF8; font: 400 16px Inter, sans-serif">
+      </div>
+    </div>
+    <fieldset style="border: 0; padding: 0; margin: 0; display: grid; gap: 6px"><legend style="font-size: 14px; font-weight: 600; margin-bottom: 6px">How should Aibek contact you?</legend>
+      <label style="display: flex; gap: 12px; align-items: center; min-height: 48px"><input type="radio" name="c" checked> WhatsApp on this number</label>
+      <label style="display: flex; gap: 12px; align-items: center; min-height: 48px"><input type="radio" name="c"> Telegram <span style="font-size: 13px; color: #8A5A17">· design state</span></label>
+      <label style="display: flex; gap: 12px; align-items: center; min-height: 48px"><input type="radio" name="c"> Email only</label>
+    </fieldset>
+    <label style="display: grid; gap: 6px; font-size: 14px; font-weight: 600">Traveler 2 <span style="font-weight: 400; color: #57605B">Optional now, needed by 26 Jun for park permits</span><input value="Jonas Hoffmann" style="min-height: 48px; padding: 0 14px; border: 1px solid #CFC7B6; border-radius: 10px; background: #FFFDF8; font: 400 16px Inter, sans-serif"></label>
+    <label style="display: grid; gap: 6px; font-size: 14px; font-weight: 600">Traveler 3<input placeholder="Add later" style="min-height: 48px; padding: 0 14px; border: 1px solid #CFC7B6; border-radius: 10px; background: #FFFDF8; font: 400 16px Inter, sans-serif"></label>
+    <label style="display: grid; gap: 6px; font-size: 14px; font-weight: 600">Hiking above 3,000 m before?<select style="min-height: 48px; padding: 0 12px; border: 1px solid #CFC7B6; border-radius: 10px; background: #FFFDF8; font: 400 16px Inter, sans-serif"><option>Yes, all of us</option><option>Some of us</option><option>No</option></select></label>
+    <label style="display: grid; gap: 6px; font-size: 14px; font-weight: 600">Diets or allergies<textarea style="min-height: 76px; padding: 12px 14px; border: 1px solid #CFC7B6; border-radius: 10px; background: #FFFDF8; font: 400 16px Inter, sans-serif">One vegetarian. No nuts for Jonas.</textarea><span style="font-weight: 400; color: #3A433E">Aibek confirms he can cater for this before your card is charged.</span></label>
+    <label style="display: grid; gap: 6px; font-size: 14px; font-weight: 600">Pickup address in Karakol<input value="Guesthouse Teskey, Toktogul St." style="min-height: 48px; padding: 0 14px; border: 1px solid #CFC7B6; border-radius: 10px; background: #FFFDF8; font: 400 16px Inter, sans-serif"></label>
+  </form>
+
+  <div style="position: absolute; left: 0; right: 0; bottom: 0; background: #FFFDF8; border-top: 1px solid #E3DDD0; padding: 12px 16px 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px">
+    <span style="line-height: 1.3"><b>48,600 KGS</b><br><span style="font-size: 13px; color: #3A433E">Nothing charged yet</span></span>
+    <a href="A3Pay.dc.html" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 24px; border-radius: 12px; background: #173F35; color: #F7F4ED; font-weight: 600; text-decoration: none">Continue to payment</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1300}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

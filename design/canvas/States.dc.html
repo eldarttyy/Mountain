@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PeakBook — System states</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F7F4ED}
+*{box-sizing:border-box}
+a{color:#173F35}a:hover{color:#0E2A23}
+:focus-visible{outline:3px solid #173F35;outline-offset:3px}
+@media (prefers-reduced-motion: no-preference){.pulse{animation:p 1.6s ease-in-out infinite}}
+@keyframes p{50%{opacity:.55}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1750px; padding: 64px 72px; font-family: Inter, system-ui, sans-serif; color: #202925; font-size: 16px; line-height: 1.45; background: #F7F4ED; display: grid; gap: 36px; align-content: start">
+  <header style="display: flex; justify-content: space-between; align-items: end; gap: 24px; border-bottom: 1px solid #E3DDD0; padding-bottom: 24px">
+    <h1 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 56px; font-weight: 600; line-height: 1; color: #173F35">When things don't go to plan</h1>
+    <p style="margin: 0; max-width: 520px; font-size: 15px; color: #3A433E">Every state says what happened, what it means for the traveler's seats and money, and one clear next step. Status never relies on color alone.</p>
+  </header>
+
+  <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px">
+
+    <article style="border: 1px solid #E3DDD0; border-radius: 18px; background: #FFFDF8; padding: 22px; display: grid; gap: 12px; align-content: start">
+      <p style="margin: 0; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #57605B">Loading</p>
+      <div aria-hidden="true" class="pulse" style="display: grid; gap: 10px">
+        <div style="height: 150px; border-radius: 12px; background: #EDE8DD"></div>
+        <div style="height: 14px; width: 70%; border-radius: 7px; background: #EDE8DD"></div>
+        <div style="height: 14px; width: 45%; border-radius: 7px; background: #EDE8DD"></div>
+      </div>
+      <p role="status" style="margin: 0; font-size: 14px; color: #3A433E">Loading trips… Text and prices load first; photos follow on slow connections.</p>
+    </article>
+
+    <article style="border: 1px solid #E3DDD0; border-radius: 18px; background: #FFFDF8; padding: 22px; display: grid; gap: 12px; align-content: start">
+      <p style="margin: 0; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #57605B">Empty results</p>
+      <h2 style="margin: 0; font-size: 20px">No trips match all your filters</h2>
+      <p style="margin: 0; font-size: 15px; color: #3A433E">Nothing near Karakol on 3–5 Jul is under 20,000 KGS with instant confirmation.</p>
+      <ul style="margin: 0; padding-left: 20px; font-size: 15px; display: grid; gap: 4px"><li><a href="#">Remove “Instant confirmation”</a> · 3 trips</li><li><a href="#">Raise budget to 40,000</a> · 2 trips</li><li><a href="#">Try 10–12 Jul</a> · 4 trips</li></ul>
+    </article>
+
+    <article style="border: 1px solid #E3DDD0; border-radius: 18px; background: #FFFDF8; padding: 22px; display: grid; gap: 12px; align-content: start">
+      <p style="margin: 0; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #57605B">Out of season</p>
+      <h2 style="margin: 0; font-size: 20px">Song-Kul camps are closed until June</h2>
+      <p style="margin: 0; font-size: 15px; color: #3A433E">The road over the pass is snowed in from October to mid-June. Gulmira &amp; Bakyt haven't opened 2027 dates yet.</p>
+      <button style="justify-self: start; min-height: 48px; padding: 0 18px; border-radius: 12px; border: 1.5px solid #173F35; background: transparent; color: #173F35; font: 600 15px Inter, sans-serif">Notify me when dates open</button>
+      <label style="display: grid; gap: 4px; font-size: 13px; font-weight: 600">Month you're hoping for<select style="min-height: 44px; padding: 0 10px; border: 1px solid #CFC7B6; border-radius: 10px; background: #FFFDF8; font: 400 15px Inter, sans-serif"><option>July 2027</option></select></label>
+    </article>
+
+    <article style="border: 1px solid #E3DDD0; border-radius: 18px; background: #FFFDF8; padding: 22px; display: grid; gap: 12px; align-content: start">
+      <p style="margin: 0; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #57605B">Offline</p>
+      <p role="status" style="margin: 0; display: flex; gap: 10px; align-items: center; padding: 10px 12px; border-radius: 10px; background: #F2EEE4; font-size: 14px"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#202925" stroke-width="1.8" aria-hidden="true"><path d="M2 7a12 12 0 0116 0M5 10.5a7.5 7.5 0 0110 0M8 14a3 3 0 014 0M3 3l14 14"/></svg><b>You're offline</b></p>
+      <p style="margin: 0; font-size: 15px; color: #3A433E">Your details are saved on this phone. We'll send the request as soon as you're back online — nothing is booked or charged until then.</p>
+      <p style="margin: 0; font-size: 14px; color: #3A433E">Your confirmed bookings, meeting points and host phone numbers still work offline.</p>
+    </article>
+
+    <article style="border: 2px solid #A33A2B; border-radius: 18px; background: #FFFDF8; padding: 22px; display: grid; gap: 12px; align-content: start">
+      <p style="margin: 0; display: flex; gap: 8px; align-items: center; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #A33A2B"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="#A33A2B" stroke-width="2" aria-hidden="true"><path d="M10 3l8 14H2z"/><path d="M10 8v4M10 14.5v.5"/></svg>Payment failed</p>
+      <h2 style="margin: 0; font-size: 20px">Your bank declined the card</h2>
+      <p style="margin: 0; font-size: 15px; color: #3A433E"><b>Nothing was charged.</b> Your 3 seats stay held for 30 minutes (until 14:50) while you try again.</p>
+      <button style="min-height: 52px; border: 0; border-radius: 12px; background: #173F35; color: #F7F4ED; font: 600 16px Inter, sans-serif">Try another card</button>
+      <button style="min-height: 48px; border-radius: 12px; border: 1.5px solid #173F35; background: transparent; color: #173F35; font: 600 15px Inter, sans-serif">Pay the host in cash instead</button>
+    </article>
+
+    <article style="border: 1px solid #E3DDD0; border-radius: 18px; background: #FFFDF8; padding: 22px; display: grid; gap: 12px; align-content: start">
+      <p style="margin: 0; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #57605B">Connection lost during payment</p>
+      <h2 style="margin: 0; font-size: 20px">We're checking whether your payment went through</h2>
+      <p style="margin: 0; font-size: 15px; color: #3A433E">Don't pay again. Ref PB-7K2M9Q4A. We'll update this page and WhatsApp you within a few minutes.</p>
+      <p role="status" style="margin: 0; display: grid; gap: 4px; font-size: 14px"><span>Reservation: <b>Awaiting host</b></span><span>Payment: <b>Checking…</b></span></p>
+      <button style="justify-self: start; min-height: 48px; padding: 0 16px; border-radius: 12px; border: 1.5px solid #173F35; background: transparent; color: #173F35; font: 600 15px Inter, sans-serif">Check again</button>
+    </article>
+
+    <article style="border: 1px solid #E3DDD0; border-radius: 18px; background: #FFFDF8; padding: 22px; display: grid; gap: 12px; align-content: start">
+      <p style="margin: 0; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #57605B">Availability changed in checkout</p>
+      <h2 style="margin: 0; font-size: 20px">Only 2 seats left on Sat 3 Jul</h2>
+      <p style="margin: 0; font-size: 15px; color: #3A433E">Another traveler booked while you were filling in details. You weren't charged. Your details are kept.</p>
+      <div style="display: grid; gap: 8px">
+        <a href="#" style="display: flex; justify-content: space-between; align-items: center; min-height: 52px; padding: 0 14px; border: 1px solid #D6CFBF; border-radius: 12px; text-decoration: none; color: #202925"><span><b>Sat 10 Jul</b> · 8 seats</span><span>46,500</span></a>
+        <a href="#" style="display: flex; justify-content: space-between; align-items: center; min-height: 52px; padding: 0 14px; border: 1px solid #D6CFBF; border-radius: 12px; text-decoration: none; color: #202925"><span><b>Sat 3 Jul</b> · 2 travelers</span><span>31,000</span></a>
+      </div>
+    </article>
+
+    <article style="border: 1px solid #E3DDD0; border-radius: 18px; background: #FFFDF8; padding: 22px; display: grid; gap: 12px; align-content: start">
+      <p style="margin: 0; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #57605B">Expired / declined</p>
+      <h2 style="margin: 0; font-size: 20px">Aibek didn't reply in time</h2>
+      <p style="margin: 0; display: grid; gap: 4px; font-size: 14px"><span style="display: flex; gap: 8px; align-items: center"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="#202925" stroke-width="1.8" aria-hidden="true"><path d="M6 3h8M6 17h8M7 3c0 4 6 4 6 7s-6 3-6 7M13 3c0 4-6 4-6 7"/></svg>Reservation: <b>Expired</b></span><span style="display: flex; gap: 8px; align-items: center"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="#202925" stroke-width="1.8" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke-dasharray="3 2.5"/></svg>Payment: <b>Not charged</b> · hold canceled</span></p>
+      <p style="margin: 0; font-size: 15px; color: #3A433E">Your bank usually removes the hold in 5–10 days. Similar trips with seats on your date:</p>
+      <a href="#" style="font-weight: 600">See 2 similar treks on 3 Jul</a>
+    </article>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1750}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

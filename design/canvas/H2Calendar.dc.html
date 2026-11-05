@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PeakBook Host — Availability calendar</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F7F4ED}
+*{box-sizing:border-box}
+a{color:#173F35}a:hover{color:#0E2A23}
+:focus-visible{outline:3px solid #173F35;outline-offset:3px}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: 1700px; overflow: hidden; font-family: Inter, system-ui, sans-serif; color: #202925; font-size: 16px; line-height: 1.45; background: #F7F4ED">
+  <header style="padding: 12px 16px; background: #173F35; color: #F7F4ED"><b style="font-size: 17px">Calendar</b><br><span style="font-size: 13px; color: #D9E3DE">Seats, holds and blocked dates</span></header>
+
+  <div style="padding: 16px 16px 0; display: grid; gap: 18px">
+    <label style="display: grid; gap: 4px; font-size: 13px; font-weight: 600">Listing<select style="min-height: 48px; padding: 0 12px; border: 1px solid #CFC7B6; border-radius: 10px; background: #FFFDF8; font: 400 16px Inter, sans-serif"><option>Ala-Kul Lake Pass Trek · trip seats</option><option>Jeti-Oguz Day Hike · trip seats</option></select></label>
+
+    <div style="display: flex; justify-content: space-between; align-items: center">
+      <button aria-label="Previous month" style="width: 44px; height: 44px; border-radius: 22px; border: 1px solid #D6CFBF; background: transparent; display: grid; place-items: center"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#202925" stroke-width="2" aria-hidden="true"><path d="M12 4l-6 6 6 6"/></svg></button>
+      <h1 style="margin: 0; font-size: 20px">July 2027</h1>
+      <button aria-label="Next month" style="width: 44px; height: 44px; border-radius: 22px; border: 1px solid #D6CFBF; background: transparent; display: grid; place-items: center"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#202925" stroke-width="2" aria-hidden="true"><path d="M8 4l6 6-6 6"/></svg></button>
+    </div>
+
+    <div role="grid" aria-label="July 2027" style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; font-size: 12px; text-align: center">
+      <sc-for list="{{dow}}" as="d" hint-placeholder-count="7"><span style="font-weight: 600; color: #57605B; padding-bottom: 4px">{{d}}</span></sc-for>
+      <sc-for list="{{days}}" as="c" hint-placeholder-count="35">
+        <span role="gridcell" aria-label="{{c.label}}" style="min-height: 52px; border-radius: 8px; padding: 4px 2px; display: grid; align-content: space-between; justify-items: center; background: {{c.bg}}; border: {{c.border}}; color: {{c.fg}}"><b style="font-size: 14px">{{c.n}}</b><span style="font-size: 10px; line-height: 1.1">{{c.tag}}</span></span>
+      </sc-for>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 13px">
+      <span style="display: flex; gap: 8px; align-items: center"><span aria-hidden="true" style="width: 18px; height: 18px; border-radius: 4px; background: #FFFDF8; border: 2px solid #173F35"></span>Departure · “2 open”</span>
+      <span style="display: flex; gap: 8px; align-items: center"><span aria-hidden="true" style="width: 18px; height: 18px; border-radius: 4px; background: #173F35"></span>Departure full</span>
+      <span style="display: flex; gap: 8px; align-items: center"><span aria-hidden="true" style="width: 18px; height: 18px; border-radius: 4px; background: #E3DDD0"></span>Blocked · “Off”</span>
+      <span style="display: flex; gap: 8px; align-items: center"><span aria-hidden="true" style="width: 18px; height: 18px; border-radius: 4px; border: 1px dashed #B9B09D"></span>No departure</span>
+    </div>
+
+    <section aria-labelledby="sd" style="border: 1px solid #E3DDD0; border-radius: 16px; background: #FFFDF8; padding: 16px; display: grid; gap: 12px">
+      <h2 id="sd" style="margin: 0; font-size: 18px">Sat 3 Jul · 8 seats</h2>
+      <div aria-hidden="true" style="display: flex; height: 14px; border-radius: 7px; overflow: hidden; border: 1px solid #173F35">
+        <span style="width: 37.5%; background: #173F35"></span>
+        <span style="width: 37.5%; background: repeating-linear-gradient(45deg, #77AEB9 0 4px, #FFFDF8 4px 8px)"></span>
+        <span style="width: 25%; background: #FFFDF8"></span>
+      </div>
+      <ul style="list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; font-size: 15px">
+        <li><b>3 booked</b> · Marta Silva, confirmed, cash</li>
+        <li><b>3 held</b> · Lena Hoffmann, request expires in 47 h</li>
+        <li><b>2 open</b> · shown to travelers now</li>
+      </ul>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px">
+        <button style="min-height: 48px; border-radius: 12px; border: 1.5px solid #173F35; background: transparent; color: #173F35; font: 600 15px Inter, sans-serif">Change seats</button>
+        <button style="min-height: 48px; border-radius: 12px; border: 1px solid #D6CFBF; background: transparent; color: #202925; font: 600 15px Inter, sans-serif">Close date</button>
+      </div>
+      <span style="font-size: 13px; color: #57605B">You can't go below 6 seats while 6 are booked or held.</span>
+    </section>
+
+    <button style="min-height: 52px; border: 0; border-radius: 12px; background: #173F35; color: #F7F4ED; font: 600 16px Inter, sans-serif">Add a departure</button>
+
+    <section aria-labelledby="inv" style="border: 1px dashed #B9B09D; border-radius: 16px; padding: 16px; display: grid; gap: 8px">
+      <h2 id="inv" style="margin: 0; font-size: 16px">Camps work in units, not seats</h2>
+      <p style="margin: 0; font-size: 14px; color: #3A433E">For a yurt camp the calendar counts <b>yurts per night</b> (e.g. “Private yurt: 1 of 2 free”) and <b>beds per night</b> for shared yurts. A booking holds units for each night of the stay.</p>
+    </section>
+
+    <section aria-labelledby="wl" style="display: grid; gap: 10px">
+      <h2 id="wl" style="margin: 0; font-size: 18px">Waitlist demand</h2>
+      <p style="margin: 0; font-size: 14px; color: #57605B">Travelers asking to be told when dates open</p>
+      <sc-for list="{{wait}}" as="w" hint-placeholder-count="5">
+        <div style="display: grid; grid-template-columns: 44px minmax(0, 1fr) 28px; gap: 10px; align-items: center; font-size: 14px">
+          <span>{{w.m}}</span>
+          <span aria-hidden="true" style="height: 12px; border-radius: 6px; background: #E3DDD0; overflow: hidden"><span style="display: block; height: 12px; width: {{w.pct}}; background: #77AEB9"></span></span>
+          <b style="text-align: right">{{w.n}}</b>
+        </div>
+      </sc-for>
+      <span style="font-size: 13px; color: #3A433E">Adding August dates notifies 14 people.</span>
+    </section>
+  </div>
+
+  <nav aria-label="Host" style="position: absolute; left: 0; right: 0; bottom: 0; background: #FFFDF8; border-top: 1px solid #E3DDD0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 6px 0 10px">
+    <a href="H1Attention.dc.html" style="display: grid; justify-items: center; gap: 2px; min-height: 52px; padding-top: 6px; font-size: 12px; text-decoration: none; color: #3A433E"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="#3A433E" stroke-width="1.8" aria-hidden="true"><path d="M3 5h14v10H3zM3 5l7 6 7-6"/></svg>Inbox · 2</a>
+    <a href="#" aria-current="page" style="display: grid; justify-items: center; gap: 2px; min-height: 52px; padding-top: 6px; font-size: 12px; font-weight: 600; text-decoration: none; color: #173F35"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="#173F35" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M3 8h14M7 2v4M13 2v4"/></svg>Calendar</a>
+    <a href="#" style="display: grid; justify-items: center; gap: 2px; min-height: 52px; padding-top: 6px; font-size: 12px; text-decoration: none; color: #3A433E"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="#3A433E" stroke-width="1.8" aria-hidden="true"><path d="M4 16V8l6-5 6 5v8z"/></svg>Listings</a>
+    <a href="H3Money.dc.html" style="display: grid; justify-items: center; gap: 2px; min-height: 52px; padding-top: 6px; font-size: 12px; text-decoration: none; color: #3A433E"><svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="#3A433E" stroke-width="1.8" aria-hidden="true"><rect x="2" y="5" width="16" height="10" rx="2"/><circle cx="10" cy="10" r="2.5"/></svg>Money</a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1700}}'>
+class Component extends DCLogic {
+  renderVals() {
+    // July 2027 starts on a Thursday. Departures every Saturday; 24 Jul full; 27-29 blocked.
+    const days = [];
+    for (let i = 0; i < 3; i++) days.push({ n: '', tag: '', bg: 'transparent', border: '0', fg: '#202925', label: '' });
+    const dep = { 3: '2 open', 10: '8 open', 17: '2 open', 24: 'Full', 31: '8 open' };
+    for (let d = 1; d <= 31; d++) {
+      const lbl = 'July ' + d;
+      if (d === 24) days.push({ n: d, tag: 'Full', bg: '#173F35', border: '2px solid #173F35', fg: '#F7F4ED', label: lbl + ', departure full' });
+      else if (dep[d]) days.push({ n: d, tag: dep[d], bg: '#FFFDF8', border: '2px solid #173F35', fg: '#202925', label: lbl + ', departure, ' + dep[d] });
+      else if (d >= 27 && d <= 29) days.push({ n: d, tag: 'Off', bg: '#E3DDD0', border: '1px solid #E3DDD0', fg: '#3A433E', label: lbl + ', blocked' });
+      else days.push({ n: d, tag: '', bg: 'transparent', border: '1px dashed #D6CFBF', fg: '#57605B', label: lbl + ', no departure' });
+    }
+    days.push({ n: '', tag: '', bg: 'transparent', border: '0', fg: '#202925', label: '' });
+    return {
+      dow: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      days,
+      wait: [
+        { m: 'Jun', n: 3, pct: '20%' }, { m: 'Jul', n: 9, pct: '60%' }, { m: 'Aug', n: 14, pct: '93%' },
+        { m: 'Sep', n: 6, pct: '40%' }, { m: 'Oct', n: 1, pct: '7%' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

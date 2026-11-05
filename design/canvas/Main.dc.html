@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PeakBook — Home</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F7F4ED}
+*{box-sizing:border-box}
+a{color:#173F35}a:hover{color:#0E2A23}
+:focus-visible{outline:3px solid #173F35;outline-offset:3px}
+.felt{background-image:url(/_blob/4b3de6df2881f589b53747c6e539479b);background-size:120px 60px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+</style>
+</helmet>
+<div style="font-family: Inter, system-ui, sans-serif; color: #202925; font-size: 16px; line-height: 1.5; background: #F7F4ED">
+
+<header style="max-width: 1360px; margin: 0 auto; padding: 18px 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+  <a href="#" style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 30px; font-weight: 600; text-decoration: none; color: #173F35; letter-spacing: -0.01em">PeakBook</a>
+  <nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 28px; font-size: 15px; font-weight: 500">
+    <a href="#" aria-current="page" style="text-decoration: none; color: #173F35; border-bottom: 2px solid #173F35; padding-bottom: 2px">Explore</a>
+    <a href="#" style="text-decoration: none; color: #202925">Destinations</a>
+    <a href="#" style="text-decoration: none; color: #202925">Saved</a>
+    <a href="#" style="text-decoration: none; color: #202925">My bookings</a>
+    <a href="#" style="text-decoration: none; color: #202925">Become a host</a>
+  </nav>
+  <div style="display: flex; gap: 8px">
+    <button aria-label="Language: English. Change language" style="min-height: 44px; padding: 0 14px; border: 1px solid #D6CFBF; border-radius: 10px; background: transparent; font: 500 14px Inter, sans-serif; color: #202925">English · Русский · Кыргызча</button>
+    <button aria-label="Currency: Kyrgyz som. Change currency" style="min-height: 44px; padding: 0 14px; border: 1px solid #D6CFBF; border-radius: 10px; background: transparent; font: 500 14px Inter, sans-serif; color: #202925">KGS сом</button>
+  </div>
+</header>
+
+<section style="position: relative; max-width: 1360px; margin: 0 auto; padding: 0 40px">
+  <div style="position: relative; border-radius: 24px; overflow: hidden; height: 600px; background: #E6EFEF">
+    <img src="/_blob/a47f0e5ce57f8460e8cf411d05f2454f" alt="Snow-capped Tian Shan peaks above forested valleys (sample illustration)" style="width: 100%; height: 100%; object-fit: cover; display: block">
+    <div style="position: absolute; top: 64px; left: 64px; max-width: 620px">
+      <h1 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 84px; line-height: 0.98; letter-spacing: -0.02em; color: #173F35">Find your way into Kyrgyzstan.</h1>
+      <p style="margin: 20px 0 0; font-size: 20px; line-height: 1.5; color: #202925; max-width: 460px">Mountain trails, yurt stays, and local guides. Book your next adventure.</p>
+    </div>
+    <span style="position: absolute; right: 16px; bottom: 16px; background: rgba(247,244,237,0.92); color: #202925; font-size: 12px; font-weight: 500; padding: 4px 10px; border-radius: 8px">Sample illustration — replace with host photography</span>
+  </div>
+
+  <form role="search" aria-label="Search experiences" style="position: relative; margin: -56px 64px 0; background: #FFFDF8; border: 1px solid #E3DDD0; border-radius: 20px; padding: 12px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px; align-items: end; box-shadow: 0 8px 24px rgba(32,41,37,0.06)">
+    <label style="display: grid; gap: 4px; padding: 8px 14px; font-size: 13px; font-weight: 600; color: #202925">Where
+      <input value="Karakol &amp; nearby" style="border: 0; padding: 0; min-height: 28px; font: 400 16px Inter, sans-serif; background: transparent; color: #202925">
+    </label>
+    <label style="display: grid; gap: 4px; padding: 8px 14px; font-size: 13px; font-weight: 600; border-left: 1px solid #E3DDD0">When
+      <input value="Flexible · July 2027" style="border: 0; padding: 0; min-height: 28px; font: 400 16px Inter, sans-serif; background: transparent; color: #202925">
+    </label>
+    <label style="display: grid; gap: 4px; padding: 8px 14px; font-size: 13px; font-weight: 600; border-left: 1px solid #E3DDD0">Travelers
+      <input value="3 adults" style="border: 0; padding: 0; min-height: 28px; font: 400 16px Inter, sans-serif; background: transparent; color: #202925">
+    </label>
+    <label style="display: grid; gap: 4px; padding: 8px 14px; font-size: 13px; font-weight: 600; border-left: 1px solid #E3DDD0">Experience
+      <select style="border: 0; padding: 0; min-height: 28px; font: 400 16px Inter, sans-serif; background: transparent; color: #202925"><option>Any type</option><option>Treks</option><option>Yurt stays</option><option>Horse riding</option><option>Day trips</option><option>Local culture</option></select>
+    </label>
+    <a href="Search.dc.html" style="display: inline-flex; align-items: center; justify-content: center; min-height: 56px; border-radius: 14px; background: #173F35; color: #F7F4ED; font-weight: 600; text-decoration: none; font-size: 16px">Search</a>
+  </form>
+</section>
+
+<section aria-label="Season" style="max-width: 1360px; margin: 40px auto 0; padding: 0 40px">
+  <p style="margin: 0; padding: 18px 24px; border-top: 1px solid #E3DDD0; border-bottom: 1px solid #E3DDD0; font-size: 15px; color: #3A433E"><b style="color: #202925">Season note.</b> High trails and Song-Kul camps run June–September. 2027 dates are open now. Ala-Archa and Issyk-Kul day trips run most of the year.</p>
+</section>
+
+<section style="max-width: 1360px; margin: 0 auto; padding: 72px 40px 0">
+  <h2 style="margin: 0 0 24px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 44px; line-height: 1.05; color: #173F35">Ways to travel</h2>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px">
+    <sc-for list="{{categories}}" as="c" hint-placeholder-count="5">
+      <a href="Search.dc.html" style="text-decoration: none; color: #202925; display: grid; gap: 12px">
+        <img src="{{c.img}}" alt="" style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 16px; display: block">
+        <span style="display: grid; gap: 2px"><span style="font-size: 18px; font-weight: 600">{{c.name}}</span><span style="font-size: 14px; color: #57605B">{{c.desc}}</span></span>
+      </a>
+    </sc-for>
+  </div>
+</section>
+
+<section style="max-width: 1360px; margin: 0 auto; padding: 88px 40px 0">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px; margin-bottom: 24px">
+    <h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 44px; line-height: 1.05; color: #173F35">Destinations</h2>
+    <a href="#" style="font-weight: 600; font-size: 15px">All destinations</a>
+  </div>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px">
+    <sc-for list="{{destinations}}" as="d" hint-placeholder-count="5">
+      <a href="Search.dc.html" style="text-decoration: none; color: #202925; display: grid; gap: 10px">
+        <img src="{{d.img}}" alt="" style="width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 16px; display: block">
+        <span style="display: grid; gap: 2px">
+          <span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 28px; font-weight: 600; line-height: 1.1; color: #173F35">{{d.name}}</span>
+          <span style="font-size: 14px; color: #57605B">{{d.alias}} · {{d.what}}</span>
+        </span>
+      </a>
+    </sc-for>
+  </div>
+</section>
+
+<div class="felt" aria-hidden="true" style="height: 60px; margin: 88px 0 0"></div>
+
+<section style="max-width: 1360px; margin: 0 auto; padding: 56px 40px 0; display: flex; flex-wrap: wrap; gap: 56px">
+  <div style="flex: 999 1 560px; min-width: 0">
+    <h2 style="margin: 0 0 6px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 44px; line-height: 1.05; color: #173F35">Upcoming departures near Karakol</h2>
+    <p style="margin: 0 0 20px; color: #57605B">Live availability for July 2027 · 3 travelers · prices in KGS</p>
+    <ul style="list-style: none; margin: 0; padding: 0; border-top: 1px solid #E3DDD0">
+      <sc-for list="{{departures}}" as="r" hint-placeholder-count="5">
+        <li style="display: grid; grid-template-columns: 76px minmax(0, 1fr) auto; gap: 20px; align-items: center; padding: 18px 0; border-bottom: 1px solid #E3DDD0">
+          <span style="display: grid; text-align: center; border: 1px solid #E3DDD0; border-radius: 12px; padding: 8px 0; background: #FFFDF8"><span style="font-size: 12px; font-weight: 600; color: #57605B">{{r.dow}}</span><span style="font-size: 24px; font-weight: 600; line-height: 1.1">{{r.day}}</span><span style="font-size: 12px; color: #57605B">{{r.mon}}</span></span>
+          <span style="display: grid; gap: 2px; min-width: 0">
+            <a href="Trek.dc.html" style="font-weight: 600; font-size: 17px; color: #202925; text-decoration: none">{{r.title}}</a>
+            <span style="font-size: 14px; color: #57605B">{{r.meta}}</span>
+            <span style="font-size: 14px; color: #3A433E">{{r.seats}} · {{r.confirm}}</span>
+          </span>
+          <span style="text-align: right; display: grid"><span style="font-weight: 600">{{r.total}}</span><span style="font-size: 13px; color: #57605B">total for 3</span></span>
+        </li>
+      </sc-for>
+    </ul>
+  </div>
+  <aside style="flex: 1 1 320px; display: grid; gap: 16px; align-content: start">
+    <div style="background: #173F35; color: #F7F4ED; border-radius: 20px; padding: 28px">
+      <h3 style="margin: 0 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 30px; font-weight: 600; line-height: 1.1">Planning for a month, not a date?</h3>
+      <p style="margin: 0 0 18px; font-size: 15px; color: #D9E3DE">Tell us when you're coming. We'll let you know when guides open dates that fit.</p>
+      <a href="#" style="display: inline-flex; min-height: 48px; align-items: center; padding: 0 20px; border-radius: 12px; background: #F7F4ED; color: #173F35; text-decoration: none; font-weight: 600">Notify me for a month</a>
+    </div>
+    <div style="border: 1px solid #E3DDD0; border-radius: 20px; padding: 28px; background: #FFFDF8">
+      <h3 style="margin: 0 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 30px; font-weight: 600; line-height: 1.1; color: #173F35">Private trip</h3>
+      <p style="margin: 0 0 18px; font-size: 15px; color: #3A433E">Your own dates, your own group. Send one inquiry; guides reply with a price.</p>
+      <a href="#" style="display: inline-flex; min-height: 48px; align-items: center; padding: 0 20px; border-radius: 12px; border: 1.5px solid #173F35; color: #173F35; text-decoration: none; font-weight: 600">Ask for a private trip</a>
+    </div>
+  </aside>
+</section>
+
+<section style="max-width: 1360px; margin: 0 auto; padding: 88px 40px 0">
+  <h2 style="margin: 0 0 24px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 44px; line-height: 1.05; color: #173F35">Hosts</h2>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 32px">
+    <sc-for list="{{hosts}}" as="h" hint-placeholder-count="2">
+      <article style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: center">
+        <img src="{{h.img}}" alt="" style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 16px; display: block">
+        <div>
+          <p style="margin: 0 0 8px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #57605B">{{h.role}}</p>
+          <h3 style="margin: 0 0 12px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 34px; font-weight: 600; line-height: 1.05; color: #173F35">{{h.name}}</h3>
+          <p style="margin: 0 0 14px; font-size: 16px; color: #3A433E">{{h.story}}</p>
+          <p style="margin: 0 0 14px; font-size: 14px; color: #57605B">Speaks {{h.langs}}</p>
+          <a href="#" style="font-weight: 600">Read the story</a>
+        </div>
+      </article>
+    </sc-for>
+  </div>
+  <p style="margin: 16px 0 0; font-size: 13px; color: #57605B">Sample host stories for the prototype. Live stories are written with the host and published with their consent.</p>
+</section>
+
+<footer style="margin-top: 96px; background: #173F35; color: #D9E3DE">
+  <div style="max-width: 1360px; margin: 0 auto; padding: 48px 40px; display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; font-size: 14px">
+    <div style="max-width: 360px"><p style="margin: 0 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 28px; font-weight: 600; color: #F7F4ED">PeakBook</p><p style="margin: 0">Book directly with local guides and camps in Kyrgyzstan.</p></div>
+    <div style="display: grid; gap: 6px"><b style="color: #F7F4ED">Travel</b><a href="#" style="color: #D9E3DE">Cancellation &amp; weather</a><a href="#" style="color: #D9E3DE">How payment works</a><a href="#" style="color: #D9E3DE">Safety at altitude</a></div>
+    <div style="display: grid; gap: 6px"><b style="color: #F7F4ED">Hosts</b><a href="#" style="color: #D9E3DE">List your trip or camp</a><a href="#" style="color: #D9E3DE">Host dashboard</a></div>
+    <div style="display: grid; gap: 6px"><b style="color: #F7F4ED">Prices</b><span>Charged in KGS. USD and EUR are estimates.</span></div>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3500}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const I = {
+      hero: '/_blob/a47f0e5ce57f8460e8cf411d05f2454f', songkul: '/_blob/e22d35a2e85f488c0ba721069bfff720',
+      issyk: '/_blob/d3a04284f8f363af3caae7f548da3b57', karakol: '/_blob/6514768c259ead1e4dc29b8aa47d2610',
+      archa: '/_blob/92b1fb0809939e45b8cf673447d73531', alay: '/_blob/ae64756ca50f306942730c0c29ed2078',
+      jailoo: '/_blob/61bcb25425162816ad2e329e6920e439'
+    };
+    return {
+      categories: [
+        { name: 'Treks', desc: 'Passes, lakes and glaciers', img: I.karakol },
+        { name: 'Yurt stays', desc: 'Nights on the high pastures', img: I.songkul },
+        { name: 'Horse riding', desc: 'Ride with herders', img: I.jailoo },
+        { name: 'Day trips', desc: 'Out and back by evening', img: I.archa },
+        { name: 'Local culture', desc: 'Felt, food and eagle hunters', img: I.issyk }
+      ],
+      destinations: [
+        { name: 'Karakol', alias: 'Каракол', what: 'Treks and hot springs', img: I.karakol },
+        { name: 'Song-Kul', alias: 'Соң-Көл', what: 'Yurt camps at 3,000 m', img: I.songkul },
+        { name: 'Issyk-Kul', alias: 'Ысык-Көл', what: 'Lake shore and culture', img: I.issyk },
+        { name: 'Ala-Archa', alias: 'Ала-Арча', what: 'Day hikes from Bishkek', img: I.archa },
+        { name: 'Osh / Alay', alias: 'Ош / Алай', what: 'Lenin Peak and the south', img: I.alay }
+      ],
+      departures: [
+        { dow: 'SAT', day: '3', mon: 'JUL', title: 'Ala-Kul Lake Pass Trek', meta: 'Karakol · 3 days · Hard · max 3,860 m', seats: '5 of 8 seats open', confirm: 'Host approval required', total: '46,500 KGS' },
+        { dow: 'SAT', day: '3', mon: 'JUL', title: 'Jeti-Oguz Day Hike', meta: 'Jeti-Oguz · 1 day · Easy', seats: '8 of 8 seats open', confirm: 'Instant confirmation', total: '9,000 KGS' },
+        { dow: 'SAT', day: '10', mon: 'JUL', title: 'Ala-Kul Lake Pass Trek', meta: 'Karakol · 3 days · Hard · max 3,860 m', seats: '8 of 8 seats open', confirm: 'Host approval required', total: '46,500 KGS' },
+        { dow: 'MON', day: '12', mon: 'JUL', title: 'Altyn-Arashan Horse Ride', meta: 'Ak-Suu · 2 days · Moderate', seats: '3 of 6 horses open', confirm: 'Host approval required', total: '39,000 KGS' },
+        { dow: 'SAT', day: '17', mon: 'JUL', title: 'Jeti-Oguz Day Hike', meta: 'Jeti-Oguz · 1 day · Easy', seats: '8 of 8 seats open', confirm: 'Instant confirmation', total: '9,000 KGS' }
+      ],
+      hosts: [
+        { name: 'Aibek Toktogulov', role: 'Mountain guide · Karakol', story: 'Twelve seasons on the passes above Karakol. Aibek starts every trek with tea and a slow first hour so the group can find its pace.', langs: 'English, Russian, Kyrgyz', img: I.karakol },
+        { name: 'Gulmira & Bakyt', role: 'Yurt camp · Song-Kul', story: 'Three yurts on the north shore, a family herd, and dinners made from what the pasture gives in July.', langs: 'Kyrgyz, Russian', img: I.songkul }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

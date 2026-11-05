@@ -1,0 +1,43 @@
+{
+  "v": 3,
+  "createdOnFiles": {"v": 1, "at": "2026-11-05T09:00:00Z"},
+  "title": "PeakBook Design",
+  "launch": {"view": "canvas"},
+  "pages": [],
+  "boards": {
+    "DesignSystem.dc.html": {"x": -1520, "y": 0, "w": 1440, "h": 2500, "title": "Design system"},
+    "Main.dc.html": {"x": 0, "y": 0, "w": 1440, "h": 3500, "title": "Home — desktop", "expand": "fill"},
+    "Search.dc.html": {"x": 1520, "y": 0, "w": 1440, "h": 2000, "title": "Search results — desktop", "expand": "fill"},
+    "Compare.dc.html": {"x": 3040, "y": 0, "w": 1440, "h": 1150, "title": "Compare (up to 3)", "expand": "fill"},
+    "Trek.dc.html": {"x": 4560, "y": 0, "w": 1440, "h": 3700, "title": "Experience detail — trek", "expand": "fill"},
+    "Yurt.dc.html": {"x": 6080, "y": 0, "w": 1440, "h": 3400, "title": "Yurt-stay detail", "expand": "fill"},
+    "Checkout.dc.html": {"x": 7600, "y": 0, "w": 1440, "h": 1850, "title": "Checkout — both payment paths", "expand": "fill"},
+    "MHome.dc.html": {"x": 0, "y": 4000, "w": 390, "h": 2700, "title": "Home — mobile"},
+    "MSearch.dc.html": {"x": 470, "y": 4000, "w": 390, "h": 1600, "title": "Results — mobile"},
+    "MFilters.dc.html": {"x": 940, "y": 4000, "w": 390, "h": 1500, "title": "Filter sheet — mobile"},
+    "A1Trek.dc.html": {"x": 1410, "y": 4000, "w": 390, "h": 2100, "title": "A1 · Trek, pick date", "is_interactive": true},
+    "A2Details.dc.html": {"x": 1880, "y": 4000, "w": 390, "h": 1300, "title": "A2 · Traveler details", "is_interactive": true},
+    "A3Pay.dc.html": {"x": 2350, "y": 4000, "w": 390, "h": 1550, "title": "A3 · Pay online & review", "is_interactive": true},
+    "A4Awaiting.dc.html": {"x": 2820, "y": 4000, "w": 390, "h": 1450, "title": "A4 · Awaiting host", "is_interactive": true},
+    "A5Confirmed.dc.html": {"x": 3290, "y": 4000, "w": 390, "h": 1950, "title": "A5 · Confirmed & paid"},
+    "MHomeRU.dc.html": {"x": 3760, "y": 4000, "w": 390, "h": 1000, "title": "Home — Russian"},
+    "B1Yurt.dc.html": {"x": 0, "y": 7100, "w": 390, "h": 2350, "title": "B1 · Yurt stay, pick nights", "is_interactive": true},
+    "B2Details.dc.html": {"x": 470, "y": 7100, "w": 390, "h": 1300, "title": "B2 · Guest details", "is_interactive": true},
+    "B3Pay.dc.html": {"x": 940, "y": 7100, "w": 390, "h": 1550, "title": "B3 · Pay host & review", "is_interactive": true},
+    "B4Confirmed.dc.html": {"x": 1410, "y": 7100, "w": 390, "h": 1850, "title": "B4 · Confirmed — pay host on arrival"},
+    "H1Attention.dc.html": {"x": 0, "y": 9900, "w": 390, "h": 2000, "title": "Host · Needs attention & inbox"},
+    "H2Calendar.dc.html": {"x": 470, "y": 9900, "w": 390, "h": 1700, "title": "Host · Availability calendar"},
+    "H3Money.dc.html": {"x": 940, "y": 9900, "w": 390, "h": 1750, "title": "Host · Money & payment settings"},
+    "States.dc.html": {"x": 1600, "y": 9900, "w": 1440, "h": 1750, "title": "System states"}
+  },
+  "order": ["DesignSystem.dc.html", "Main.dc.html", "Search.dc.html", "Compare.dc.html", "Trek.dc.html", "Yurt.dc.html", "Checkout.dc.html", "MHome.dc.html", "MSearch.dc.html", "MFilters.dc.html", "A1Trek.dc.html", "A2Details.dc.html", "A3Pay.dc.html", "A4Awaiting.dc.html", "A5Confirmed.dc.html", "MHomeRU.dc.html", "B1Yurt.dc.html", "B2Details.dc.html", "B3Pay.dc.html", "B4Confirmed.dc.html", "H1Attention.dc.html", "H2Calendar.dc.html", "H3Money.dc.html", "States.dc.html"],
+  "notes": {
+    "t1": {"x": -1520, "y": -300, "text": "PeakBook — system & traveler desktop", "kind": "title1", "maxW": 10560},
+    "t2": {"x": 0, "y": 3740, "text": "Journey A · Trek for 3 travelers, pay online, host confirms", "kind": "title1", "maxW": 4150},
+    "t3": {"x": 0, "y": 6840, "text": "Journey B · Yurt stay, pay the host in cash", "kind": "title1", "maxW": 1800},
+    "t4": {"x": 0, "y": 9640, "text": "Host workspace & system states", "kind": "title1", "maxW": 3040},
+    "s1": {"x": 4300, "y": 4000, "w": 360, "text": "All listings, hosts, prices and photos are SAMPLE content. Landscape illustrations stand in for host photography. No reviews are shown because none exist yet.", "color": "orange"},
+    "s2": {"x": 2000, "y": 7100, "w": 360, "text": "Not built in the app yet: KGS pricing, deposits, instant confirmation, Telegram contact, PDF download. Screens marked 'Design state' need that work first.", "color": "orange"}
+  },
+  "designSystems": []
+}

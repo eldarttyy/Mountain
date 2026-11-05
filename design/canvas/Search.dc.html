@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PeakBook — Search results</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F7F4ED}
+*{box-sizing:border-box}
+a{color:#173F35}a:hover{color:#0E2A23}
+:focus-visible{outline:3px solid #173F35;outline-offset:3px}
+input[type=checkbox],input[type=radio]{width:20px;height:20px;accent-color:#173F35;margin:0}
+</style>
+</helmet>
+<div style="font-family: Inter, system-ui, sans-serif; color: #202925; font-size: 16px; line-height: 1.5; background: #F7F4ED; padding-bottom: 120px">
+
+<header style="border-bottom: 1px solid #E3DDD0; background: #F7F4ED">
+  <div style="max-width: 1400px; margin: 0 auto; padding: 14px 32px; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between">
+    <a href="Main.dc.html" style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 28px; font-weight: 600; text-decoration: none; color: #173F35">PeakBook</a>
+    <form role="search" aria-label="Edit search" style="display: flex; flex-wrap: wrap; gap: 0; border: 1px solid #D6CFBF; border-radius: 14px; background: #FFFDF8; overflow: hidden">
+      <label style="display: grid; padding: 6px 16px; font-size: 12px; font-weight: 600">Where<input value="Karakol &amp; nearby" style="border: 0; padding: 0; font: 400 15px Inter, sans-serif; background: transparent; min-height: 24px; width: 170px"></label>
+      <label style="display: grid; padding: 6px 16px; font-size: 12px; font-weight: 600; border-left: 1px solid #E3DDD0">When<input value="3–5 Jul 2027" style="border: 0; padding: 0; font: 400 15px Inter, sans-serif; background: transparent; min-height: 24px; width: 130px"></label>
+      <label style="display: grid; padding: 6px 16px; font-size: 12px; font-weight: 600; border-left: 1px solid #E3DDD0">Travelers<input value="3 adults" style="border: 0; padding: 0; font: 400 15px Inter, sans-serif; background: transparent; min-height: 24px; width: 90px"></label>
+      <button style="border: 0; background: #173F35; color: #F7F4ED; font: 600 15px Inter, sans-serif; padding: 0 22px; min-height: 52px">Update</button>
+    </form>
+    <nav aria-label="Account" style="display: flex; gap: 20px; font-size: 15px; font-weight: 500"><a href="#" style="color: #202925; text-decoration: none">Saved</a><a href="#" style="color: #202925; text-decoration: none">My bookings</a><span>EN · KGS</span></nav>
+  </div>
+</header>
+
+<div style="max-width: 1400px; margin: 0 auto; padding: 28px 32px 0; display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start">
+
+  <aside aria-label="Filters" style="flex: 1 1 260px; max-width: 280px; display: grid; gap: 4px; font-size: 15px">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 10px"><h2 style="margin: 0; font-size: 18px">Filters</h2><a href="#" style="font-size: 14px">Clear all</a></div>
+    <fieldset style="border: 0; border-top: 1px solid #E3DDD0; padding: 16px 0; margin: 0; display: grid; gap: 10px"><legend style="font-weight: 600; padding: 0; float: left; width: 100%; margin-bottom: 8px">Activity</legend>
+      <label style="display: flex; gap: 10px; align-items: center"><input type="checkbox" checked> Treks</label>
+      <label style="display: flex; gap: 10px; align-items: center"><input type="checkbox" checked> Day trips</label>
+      <label style="display: flex; gap: 10px; align-items: center"><input type="checkbox" checked> Horse riding</label>
+      <label style="display: flex; gap: 10px; align-items: center"><input type="checkbox" checked> Yurt stays</label>
+      <label style="display: flex; gap: 10px; align-items: center"><input type="checkbox"> Local culture</label>
+    </fieldset>
+    <fieldset style="border: 0; border-top: 1px solid #E3DDD0; padding: 16px 0; margin: 0; display: grid; gap: 10px"><legend style="font-weight: 600; padding: 0; float: left; width: 100%; margin-bottom: 8px">Total budget for 3</legend>
+      <div style="display: flex; gap: 8px"><label style="display: grid; gap: 4px; font-size: 13px; flex: 1">Min<input value="0 KGS" style="min-height: 44px; padding: 0 10px; border: 1px solid #CFC7B6; border-radius: 10px; font: 400 15px Inter, sans-serif; background: #FFFDF8; width: 100%"></label><label style="display: grid; gap: 4px; font-size: 13px; flex: 1">Max<input value="60,000 KGS" style="min-height: 44px; padding: 0 10px; border: 1px solid #CFC7B6; border-radius: 10px; font: 400 15px Inter, sans-serif; background: #FFFDF8; width: 100%"></label></div>
+      <span style="font-size: 13px; color: #57605B">Includes required extras like transfers.</span>
+    </fieldset>
+    <fieldset style="border: 0; border-top: 1px solid #E3DDD0; padding: 16px 0; margin: 0; display: grid; gap: 10px"><legend style="font-weight: 600; padding: 0; float: left; width: 100%; margin-bottom: 8px">Payment</legend>
+      <label style="display: flex; gap: 10px; align-items: center"><input type="checkbox"> Pay online</label>
+      <label style="display: flex; gap: 10px; align-items: center"><input type="checkbox"> Pay the host (cash)</label>
+    </fieldset>
+    <fieldset style="border: 0; border-top: 1px solid #E3DDD0; padding: 16px 0; margin: 0; display: grid; gap: 10px"><legend style="font-weight: 600; padding: 0; float: left; width: 100%; margin-bottom: 8px">Booking</legend>
+      <label style="display: flex; gap: 10px; align-items: center"><input type="checkbox"> Instant confirmation</label>
+      <label style="display: flex; gap: 10px; align-items: center"><input type="checkbox" checked> Free cancellation ≥ 3 days before</label>
+    </fieldset>
+    <fieldset style="border: 0; border-top: 1px solid #E3DDD0; padding: 16px 0; margin: 0; display: grid; gap: 10px"><legend style="font-weight: 600; padding: 0; float: left; width: 100%; margin-bottom: 8px">Difficulty &amp; altitude</legend>
+      <label style="display: flex; gap: 10px; align-items: center"><input type="checkbox" checked> Easy</label>
+      <label style="display: flex; gap: 10px; align-items: center"><input type="checkbox" checked> Moderate</label>
+      <label style="display: flex; gap: 10px; align-items: center"><input type="checkbox" checked> Hard</label>
+      <label style="display: grid; gap: 4px; font-size: 14px">Highest point up to<select style="min-height: 44px; padding: 0 10px; border: 1px solid #CFC7B6; border-radius: 10px; font: 400 15px Inter, sans-serif; background: #FFFDF8"><option>Any altitude</option><option>Below 3,000 m</option><option>Below 3,500 m</option><option>Below 4,000 m</option></select></label>
+    </fieldset>
+    <fieldset style="border: 0; border-top: 1px solid #E3DDD0; padding: 16px 0; margin: 0; display: grid; gap: 10px"><legend style="font-weight: 600; padding: 0; float: left; width: 100%; margin-bottom: 8px">Duration</legend>
+      <label style="display: flex; gap: 10px; align-items: center"><input type="checkbox" checked> 1 day</label>
+      <label style="display: flex; gap: 10px; align-items: center"><input type="checkbox" checked> 2–4 days</label>
+      <label style="display: flex; gap: 10px; align-items: center"><input type="checkbox"> 5+ days</label>
+    </fieldset>
+    <fieldset style="border: 0; border-top: 1px solid #E3DDD0; padding: 16px 0; margin: 0; display: grid; gap: 10px"><legend style="font-weight: 600; padding: 0; float: left; width: 100%; margin-bottom: 8px">Group &amp; guide</legend>
+      <label style="display: flex; gap: 10px; align-items: center"><input type="radio" name="g" checked> Shared or private</label>
+      <label style="display: flex; gap: 10px; align-items: center"><input type="radio" name="g"> Private group only</label>
+      <label style="display: grid; gap: 4px; font-size: 14px">Guide speaks<select style="min-height: 44px; padding: 0 10px; border: 1px solid #CFC7B6; border-radius: 10px; font: 400 15px Inter, sans-serif; background: #FFFDF8"><option>Any language</option><option>English</option><option>Русский</option><option>Кыргызча</option><option>Deutsch</option></select></label>
+      <label style="display: flex; gap: 10px; align-items: center"><input type="checkbox"> Transport included</label>
+    </fieldset>
+    <fieldset style="border: 0; border-top: 1px solid #E3DDD0; padding: 16px 0; margin: 0; display: grid; gap: 10px"><legend style="font-weight: 600; padding: 0; float: left; width: 100%; margin-bottom: 8px">For stays</legend>
+      <label style="display: flex; gap: 10px; align-items: center"><input type="checkbox"> Private yurt</label>
+      <label style="display: flex; gap: 10px; align-items: center"><input type="checkbox"> Meals included</label>
+      <label style="display: flex; gap: 10px; align-items: center"><input type="checkbox"> Shower on site</label>
+      <label style="display: flex; gap: 10px; align-items: center"><input type="checkbox"> Indoor or private toilet</label>
+      <label style="display: grid; gap: 4px; font-size: 14px">Show stay prices<select style="min-height: 44px; padding: 0 10px; border: 1px solid #CFC7B6; border-radius: 10px; font: 400 15px Inter, sans-serif; background: #FFFDF8"><option>Total for my group</option><option>Per person per night</option><option>Per yurt per night</option></select></label>
+    </fieldset>
+  </aside>
+
+  <main style="flex: 999 1 560px; min-width: 0">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px; margin-bottom: 18px">
+      <div>
+        <h1 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 40px; font-weight: 600; line-height: 1.05; color: #173F35">5 trips near Karakol</h1>
+        <p style="margin: 4px 0 0; font-size: 15px; color: #57605B">Available 3–5 Jul 2027 for 3 travelers · Totals include required extras</p>
+      </div>
+      <div style="display: flex; gap: 10px; align-items: center">
+        <label style="display: flex; gap: 8px; align-items: center; font-size: 14px">Sort<select style="min-height: 44px; padding: 0 10px; border: 1px solid #CFC7B6; border-radius: 10px; font: 400 15px Inter, sans-serif; background: #FFFDF8"><option>Soonest available</option><option>Total price, low to high</option><option>Closest to Karakol</option></select></label>
+        <button aria-pressed="true" style="min-height: 44px; padding: 0 16px; border-radius: 10px; border: 1.5px solid #173F35; background: #173F35; color: #F7F4ED; font: 600 14px Inter, sans-serif">Map on</button>
+      </div>
+    </div>
+
+    <ul style="list-style: none; margin: 0; padding: 0; display: grid; gap: 18px">
+      <sc-for list="{{results}}" as="r" hint-placeholder-count="5">
+        <li style="display: grid; grid-template-columns: minmax(200px, 260px) minmax(0, 1fr); gap: 20px; padding: 14px; background: #FFFDF8; border: 1px solid #E3DDD0; border-radius: 18px">
+          <div style="position: relative">
+            <img src="{{r.img}}" alt="" style="width: 100%; height: 100%; min-height: 220px; object-fit: cover; border-radius: 12px; display: block">
+            <span style="position: absolute; left: 8px; bottom: 8px; background: rgba(247,244,237,0.94); font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 6px">Sample listing</span>
+          </div>
+          <div style="display: grid; gap: 6px; align-content: start; padding: 4px 4px 4px 0">
+            <div style="display: flex; justify-content: space-between; gap: 12px">
+              <span style="font-size: 14px; color: #57605B">{{r.meta}}</span>
+              <label style="display: flex; gap: 8px; align-items: center; font-size: 14px; white-space: nowrap"><input type="checkbox" checked="{{r.compare}}"> Compare</label>
+            </div>
+            <a href="{{r.href}}" style="font-size: 20px; font-weight: 600; color: #202925; text-decoration: none; line-height: 1.25">{{r.title}}</a>
+            <span style="font-size: 14px; color: #3A433E">With {{r.host}} · {{r.langs}} · {{r.reviews}}</span>
+            <span style="font-size: 14px; color: #3A433E">{{r.avail}}</span>
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px; margin-top: 8px; padding-top: 12px; border-top: 1px solid #EDE8DD">
+              <div style="display: grid; gap: 4px; font-size: 14px">
+                <span style="display: flex; gap: 8px; align-items: center; font-weight: 600">
+                  <sc-if value="{{r.instant}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="#173F35" stroke-width="1.8" aria-hidden="true"><path d="M11 2L4 11h5l-1 7 7-9h-5z"/></svg></sc-if>
+                  <sc-if value="{{r.approval}}" hint-placeholder-val="{{ true }}"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="#202925" stroke-width="1.8" aria-hidden="true"><circle cx="10" cy="7" r="3.5"/><path d="M3.5 18c.8-3.5 3.4-5 6.5-5s5.7 1.5 6.5 5"/></svg></sc-if>
+                  {{r.confirm}}</span>
+                <span style="color: #3A433E">{{r.pay}}</span>
+                <span style="color: #3A433E">{{r.cancel}}</span>
+              </div>
+              <div style="text-align: right; display: grid; font-variant-numeric: tabular-nums">
+                <span style="font-size: 20px; font-weight: 600">{{r.total}}</span>
+                <span style="font-size: 13px; color: #57605B">{{r.unit}}</span>
+              </div>
+            </div>
+          </div>
+        </li>
+      </sc-for>
+    </ul>
+    <p style="margin: 20px 0 0; font-size: 14px; color: #57605B">Nothing else is free on these dates. <a href="#">Try 10–12 Jul</a> (4 more trips) or <a href="#">get notified</a> if seats open.</p>
+  </main>
+
+  <section aria-label="Map" style="flex: 1 1 340px; max-width: 400px; position: relative">
+    <div style="border: 1px solid #E3DDD0; border-radius: 18px; overflow: hidden; background: #EEF2EC">
+      <svg viewBox="0 0 400 560" width="100%" role="img" aria-label="Illustrative map of eastern Issyk-Kul with 5 trips near Karakol" style="display: block">
+        <rect width="400" height="560" fill="#EEF2EC"/>
+        <path d="M-20 120 C60 90 160 100 230 150 C270 180 260 230 200 240 C120 255 40 220 -20 230 Z" fill="#B9D5DA"/>
+        <path d="M0 420 C80 380 140 400 220 360 C300 320 360 360 420 330 L420 560 L0 560 Z" fill="#DCE5D6"/>
+        <path d="M260 250 L330 290 L360 380 L300 470" fill="none" stroke="#C9C1AE" stroke-width="3" stroke-dasharray="6 6"/>
+        <text x="30" y="170" font-family="Inter, sans-serif" font-size="13" fill="#3D6E78">Issyk-Kul</text>
+        <circle cx="262" cy="252" r="5" fill="#202925"/><text x="272" y="248" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#202925">Karakol</text>
+        <text x="200" y="530" font-family="Inter, sans-serif" font-size="12" fill="#57605B">Terskey Ala-Too</text>
+      </svg>
+      <sc-for list="{{pins}}" as="p" hint-placeholder-count="5">
+        <button style="position: absolute; left: {{p.x}}; top: {{p.y}}; min-height: 36px; padding: 0 12px; border-radius: 18px; border: 1px solid #173F35; background: {{p.bg}}; color: {{p.fg}}; font: 600 13px Inter, sans-serif; box-shadow: 0 2px 6px rgba(32,41,37,0.12)" aria-label="{{p.label}}">{{p.price}}</button>
+      </sc-for>
+    </div>
+    <p style="margin: 8px 0 0; font-size: 12px; color: #57605B">Illustrative map for the prototype. Pins show the total for 3.</p>
+  </section>
+</div>
+
+<div role="region" aria-label="Compare" style="position: fixed; left: 50%; transform: translateX(-50%); bottom: 24px; width: min(720px, calc(100% - 32px)); background: #173F35; color: #F7F4ED; border-radius: 18px; padding: 12px 12px 12px 22px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; box-shadow: 0 10px 30px rgba(23,63,53,0.25)">
+  <span style="font-size: 15px"><b>2 of 3 selected</b> · Ala-Kul Pass Trek, Altyn-Arashan Horse Ride</span>
+  <span style="display: flex; gap: 8px"><button style="min-height: 44px; padding: 0 14px; border-radius: 10px; border: 1px solid #77AEB9; background: transparent; color: #F7F4ED; font: 500 14px Inter, sans-serif">Clear</button><a href="Compare.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 10px; background: #F7F4ED; color: #173F35; font-weight: 600; text-decoration: none; font-size: 15px">Compare</a></span>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const I = { karakol: '/_blob/6514768c259ead1e4dc29b8aa47d2610', archa: '/_blob/92b1fb0809939e45b8cf673447d73531', jailoo: '/_blob/61bcb25425162816ad2e329e6920e439', songkul: '/_blob/e22d35a2e85f488c0ba721069bfff720', issyk: '/_blob/d3a04284f8f363af3caae7f548da3b57' };
+    const A = 'Host approval required · replies within 48 h', N = 'Instant confirmation';
+    return {
+      results: [
+        { title: 'Ala-Kul Lake Pass Trek', meta: 'Trek · Karakol · 3 days · Hard · max 3,860 m', host: 'Aibek', langs: 'English, Русский, Кыргызча', reviews: 'No reviews yet', avail: 'Sat 3 Jul · 5 of 8 seats open · shared group', confirm: A, approval: true, instant: false, pay: 'Pay online or cash to host', cancel: 'Free cancellation until 26 Jun', total: '46,500 KGS', unit: '15,500 per traveler × 3 · pickup optional', img: I.karakol, href: 'Trek.dc.html', compare: true },
+        { title: 'Jeti-Oguz Red Rocks Day Hike', meta: 'Day trip · Jeti-Oguz · 1 day · Easy', host: 'Aibek', langs: 'English, Русский', reviews: 'No reviews yet', avail: 'Sat 3 Jul or Sun 4 Jul · 8 of 8 seats open · transport included', confirm: N, approval: false, instant: true, pay: 'Pay online or cash to host', cancel: 'Free cancellation until 24 h before', total: '9,000 KGS', unit: '3,000 per traveler × 3', img: I.archa, href: 'Trek.dc.html', compare: false },
+        { title: 'Altyn-Arashan Horse Ride', meta: 'Horse riding · Ak-Suu · 2 days · Moderate · max 3,000 m', host: 'Nurlan', langs: 'Русский, Кыргызча', reviews: 'No reviews yet', avail: 'Sat 3 Jul · 3 of 6 horses open', confirm: A, approval: true, instant: false, pay: 'Cash to host only', cancel: 'Free cancellation until 3 days before', total: '39,000 KGS', unit: '13,000 per rider × 3', img: I.jailoo, href: 'Trek.dc.html', compare: true },
+        { title: 'Altyn-Arashan Hot Spring Yurts', meta: 'Yurt stay · Ak-Suu valley · 2 nights · shared bathroom', host: 'Elnura', langs: 'Русский, English', reviews: 'No reviews yet', avail: '3–5 Jul · 2 private yurts open (sleep 4 each)', confirm: N, approval: false, instant: true, pay: 'Cash to host only', cancel: 'Free cancellation until 3 days before', total: '10,000 KGS', unit: '5,000 per yurt per night · 1 yurt fits 3', img: I.songkul, href: 'Yurt.dc.html', compare: false },
+        { title: 'Private Karakol Guide, Full Day', meta: 'Private guide · Karakol · 1 day · You choose the route', host: 'Asel', langs: 'English, Deutsch, Русский', reviews: 'No reviews yet', avail: 'Any day 3–5 Jul · private group up to 6', confirm: A, approval: true, instant: false, pay: 'Pay online', cancel: 'Free cancellation until 2 days before', total: '12,000 KGS', unit: 'per group, up to 6 · transport extra', img: I.issyk, href: 'Trek.dc.html', compare: false }
+      ],
+      pins: [
+        { x: '230px', y: '300px', price: '46,500', bg: '#173F35', fg: '#F7F4ED', label: 'Ala-Kul Lake Pass Trek, 46,500 KGS, selected' },
+        { x: '90px', y: '330px', price: '9,000', bg: '#FFFDF8', fg: '#173F35', label: 'Jeti-Oguz Day Hike, 9,000 KGS' },
+        { x: '300px', y: '360px', price: '39,000', bg: '#FFFDF8', fg: '#173F35', label: 'Altyn-Arashan Horse Ride, 39,000 KGS' },
+        { x: '280px', y: '410px', price: '10,000', bg: '#FFFDF8', fg: '#173F35', label: 'Altyn-Arashan Hot Spring Yurts, 10,000 KGS' },
+        { x: '190px', y: '220px', price: '12,000', bg: '#FFFDF8', fg: '#173F35', label: 'Private Karakol Guide, 12,000 KGS' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

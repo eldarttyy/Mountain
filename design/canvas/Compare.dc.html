@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PeakBook — Compare trips</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F7F4ED}
+*{box-sizing:border-box}
+a{color:#173F35}a:hover{color:#0E2A23}
+:focus-visible{outline:3px solid #173F35;outline-offset:3px}
+</style>
+</helmet>
+<div style="font-family: Inter, system-ui, sans-serif; color: #202925; font-size: 15px; line-height: 1.5; background: #F7F4ED">
+  <div style="max-width: 1280px; margin: 0 auto; padding: 32px 32px 64px">
+    <a href="Search.dc.html" style="font-weight: 600; font-size: 15px">← Back to results</a>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px; margin: 16px 0 24px">
+      <div>
+        <h1 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 48px; font-weight: 600; line-height: 1.05; color: #173F35">Compare trips</h1>
+        <p style="margin: 4px 0 0; color: #57605B">3–5 Jul 2027 · 3 travelers · totals in KGS include required extras</p>
+      </div>
+      <label style="display: flex; gap: 10px; align-items: center; font-size: 15px"><input type="checkbox" style="width: 20px; height: 20px; accent-color: #173F35"> Show only differences</label>
+    </div>
+    <div style="overflow-x: auto; border: 1px solid #E3DDD0; border-radius: 18px; background: #FFFDF8">
+      <table style="width: 100%; min-width: 900px; border-collapse: collapse; font-variant-numeric: tabular-nums">
+        <caption style="position: absolute; width: 1px; height: 1px; overflow: hidden">Comparison of 3 trips</caption>
+        <thead>
+          <tr>
+            <th scope="col" style="width: 200px; text-align: left; padding: 20px; vertical-align: bottom; font-size: 13px; color: #57605B; font-weight: 600">3 of 3 selected</th>
+            <sc-for list="{{trips}}" as="t" hint-placeholder-count="3">
+              <th scope="col" style="text-align: left; padding: 20px; vertical-align: top; border-left: 1px solid #EDE8DD; font-weight: 400">
+                <img src="{{t.img}}" alt="" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 12px; display: block">
+                <a href="Trek.dc.html" style="display: block; margin-top: 12px; font-size: 18px; font-weight: 600; color: #202925; text-decoration: none">{{t.title}}</a>
+                <span style="font-size: 14px; color: #57605B">{{t.where}}</span>
+                <span style="display: flex; gap: 12px; margin-top: 10px"><a href="A1Trek.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 10px; background: #173F35; color: #F7F4ED; font-weight: 600; text-decoration: none">Choose</a><button style="min-height: 44px; padding: 0 10px; border: 0; background: transparent; color: #173F35; font: 600 14px Inter, sans-serif; text-decoration: underline">Remove</button></span>
+              </th>
+            </sc-for>
+          </tr>
+        </thead>
+        <tbody>
+          <sc-for list="{{rows}}" as="r" hint-placeholder-count="12">
+            <tr style="border-top: 1px solid #EDE8DD">
+              <th scope="row" style="text-align: left; padding: 14px 20px; font-weight: 600; vertical-align: top; font-size: 14px">{{r.label}}</th>
+              <td style="padding: 14px 20px; vertical-align: top; border-left: 1px solid #EDE8DD; background: {{r.bg0}}">{{r.a}}</td>
+              <td style="padding: 14px 20px; vertical-align: top; border-left: 1px solid #EDE8DD; background: {{r.bg1}}">{{r.b}}</td>
+              <td style="padding: 14px 20px; vertical-align: top; border-left: 1px solid #EDE8DD; background: {{r.bg2}}">{{r.c}}</td>
+            </tr>
+          </sc-for>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin: 14px 0 0; font-size: 13px; color: #57605B">Lowest total is marked “Lowest total” in words, not only by shading. Sample listings for the prototype.</p>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1150}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const T = '#F2F6F3', N = 'transparent';
+    return {
+      trips: [
+        { title: 'Ala-Kul Lake Pass Trek', where: 'Karakol · with Aibek', img: '/_blob/6514768c259ead1e4dc29b8aa47d2610' },
+        { title: 'Altyn-Arashan Horse Ride', where: 'Ak-Suu · with Nurlan', img: '/_blob/61bcb25425162816ad2e329e6920e439' },
+        { title: 'Jeti-Oguz Red Rocks Day Hike', where: 'Jeti-Oguz · with Aibek', img: '/_blob/92b1fb0809939e45b8cf673447d73531' }
+      ],
+      rows: [
+        { label: 'Total for 3', a: '46,500 KGS (+1,500 optional pickup)', b: '39,000 KGS', c: '9,000 KGS · Lowest total', bg0: N, bg1: N, bg2: T },
+        { label: 'Price unit', a: '15,500 per traveler', b: '13,000 per rider', c: '3,000 per traveler', bg0: N, bg1: N, bg2: N },
+        { label: 'Confirmation', a: 'Host approval · reply within 48 h', b: 'Host approval · reply within 48 h', c: 'Instant confirmation', bg0: N, bg1: N, bg2: N },
+        { label: 'Payment', a: 'Pay online (charged when confirmed) or cash to host', b: 'Cash to host only, in KGS on the day', c: 'Pay online or cash to host', bg0: N, bg1: N, bg2: N },
+        { label: 'Cancellation', a: 'Free until 26 Jun, then no refund', b: 'Free until 30 Jun', c: 'Free until 24 h before', bg0: N, bg1: N, bg2: N },
+        { label: 'Weather', a: 'Pass closed by snow: move date or full refund', b: 'Host decides on the day; full refund if canceled', c: 'Moves to next day or full refund', bg0: N, bg1: N, bg2: N },
+        { label: 'Difficulty', a: 'Hard · 6–8 h walking a day · 1,200 m ascent', b: 'Moderate · 5 h in the saddle a day · no riding experience needed', c: 'Easy · 4 h · 300 m ascent', bg0: N, bg1: N, bg2: N },
+        { label: 'Highest point', a: '3,860 m (Ala-Kul pass)', b: '3,000 m', c: '2,400 m', bg0: N, bg1: N, bg2: N },
+        { label: 'Duration', a: '3 days, 2 nights', b: '2 days, 1 night', c: '1 day', bg0: N, bg1: N, bg2: N },
+        { label: 'Accommodation', a: 'Tents (2 per tent), provided', b: 'Guesthouse in Altyn-Arashan, shared room', c: 'None', bg0: N, bg1: N, bg2: N },
+        { label: 'Meals', a: 'All meals on trail · vegetarian on request', b: 'Dinner and breakfast', c: 'Picnic lunch', bg0: N, bg1: N, bg2: N },
+        { label: 'Included', a: 'Guide, tents, cooking gear, park fee', b: 'Horse, horseman-guide, park fee', c: 'Guide, transport from Karakol', bg0: N, bg1: N, bg2: N },
+        { label: 'Not included', a: 'Sleeping bag (rent 600 KGS), pickup', b: 'Hot spring entry (~300 KGS)', c: 'Nothing listed', bg0: N, bg1: N, bg2: N },
+        { label: 'Guide languages', a: 'English, Русский, Кыргызча', b: 'Русский, Кыргызча', c: 'English, Русский', bg0: N, bg1: N, bg2: N },
+        { label: 'Reviews', a: 'No reviews yet', b: 'No reviews yet', c: 'No reviews yet', bg0: N, bg1: N, bg2: N }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

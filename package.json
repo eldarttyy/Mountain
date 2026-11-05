@@ -1,0 +1,16 @@
+{
+  "name": "peakbook",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --no-warnings --test test/*.test.js",
+    "start": "node --no-warnings server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.22.3"
+  }
+}

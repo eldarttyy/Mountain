@@ -34,6 +34,12 @@ button:disabled { opacity: .5; cursor: not-allowed; }
 .date small { display: block; color: var(--muted); font-size: .7rem; }
 .form { display: grid; gap: 10px; max-width: 480px; }
 .form label { display: grid; gap: 4px; font-size: .9rem; }
+.form label.row { display: flex; }
+fieldset.pay { border: 1px solid var(--line); border-radius: 12px; padding: 10px; display: grid; gap: 8px; margin: 0; }
+fieldset.pay legend { font-weight: 600; padding: 0 4px; }
+label.opt { display: flex !important; gap: 10px; align-items: flex-start; padding: 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); cursor: pointer; }
+label.opt:has(input:checked) { border-color: var(--accent); outline: 1px solid var(--accent); }
+label.opt input { margin-top: 4px; }
 .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
 .msg { padding: 10px 12px; border-radius: 8px; margin: 10px 0; border: 1px solid var(--line); background: var(--card); }
 .msg.err { border-color: var(--bad); color: var(--bad); }

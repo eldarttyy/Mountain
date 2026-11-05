@@ -64,7 +64,7 @@ async function detail(id) {
     <p>${esc(e.description)}</p>
     ${e.includes ? `<p class="small"><b>Includes:</b> ${esc(e.includes)}</p>` : ''}
     <p class="small muted">Hosted by <b>${esc(e.host_name)}</b> — ${esc(e.host_bio)}</p>
-    <p class="price">$${e.price_usd} per person · pay the guide directly</p>
+    <p class="price">$${e.price_usd} per person · ${[e.accepts_online && "pay online", e.accepts_cash && "cash to guide"].filter(Boolean).join(" or ")}</p>
 
     <h2>Choose a date</h2>
     ${open.length ? `<div class="dates">${e.departures.map((d) => `<button class="date" data-id="${d.id}" ${d.seats_left ? '' : 'disabled'}>
@@ -78,8 +78,15 @@ async function detail(id) {
         <label>WhatsApp or email <input name="contact" required maxlength="100"></label>
         <label>People <input name="party_size" type="number" min="1" value="2" required></label>
         <label>Message to guide (optional) <textarea name="message" maxlength="1000" placeholder="Experience level, dietary needs, pickup..."></textarea></label>
-        <button>Send request</button>
-        <p class="small muted">No payment now. Seats are held while the guide confirms.</p>
+        <fieldset class="pay">
+          <legend>How do you want to pay? <span class="price" id="total"></span></legend>
+          ${e.accepts_online ? `<label class="opt"><input type="radio" name="payment_method" value="online" checked>
+            <span><b>Pay now online</b><br><span class="small muted">Card is only charged when the guide confirms.
+            Free cancellation until <span class="fcu"></span>.</span></span></label>` : ''}
+          ${e.accepts_cash ? `<label class="opt"><input type="radio" name="payment_method" value="cash" ${e.accepts_online ? '' : 'checked'}>
+            <span><b>Pay the guide in cash</b><br><span class="small muted">No prepayment. Pay on the day of the trip.</span></span></label>` : ''}
+        </fieldset>
+        <button id="submit">Send request</button>
       </form>
     </div>
     <div id="out"></div>
@@ -96,8 +103,19 @@ async function detail(id) {
     const ps = document.querySelector('[name=party_size]');
     ps.max = sel.seats_left;
     if (Number(ps.value) > sel.seats_left) ps.value = sel.seats_left;
+    $app.querySelectorAll('.fcu').forEach((s) => s.textContent = fmtDate(sel.free_cancel_until));
     document.getElementById('book').style.display = '';
+    updateTotal();
   });
+
+  const updateTotal = () => {
+    const f = document.getElementById('bf'); if (!f) return;
+    const n = Number(f.party_size.value) || 0;
+    document.getElementById('total').textContent = `· Total $${n * e.price_usd}`;
+    const online = f.querySelector('[name=payment_method]:checked')?.value === 'online';
+    document.getElementById('submit').textContent = online ? `Continue to payment · $${n * e.price_usd}` : 'Send request';
+  };
+  document.getElementById('bf')?.addEventListener('input', updateTotal);
 
   const bf = document.getElementById('bf');
   if (bf) bf.onsubmit = async (ev) => {
@@ -107,6 +125,7 @@ async function detail(id) {
     try {
       const r = await api('/api/bookings', { method: 'POST', body: { ...f, departure_id: sel.id, party_size: Number(f.party_size) } });
       try { localStorage.setItem('pb_last_ref', r.ref); } catch {}
+      if (r.checkout_url) { location.href = r.checkout_url; return; }
       document.getElementById('book').style.display = 'none';
       out.innerHTML = `<div class="msg ok"><b>Request sent — ref ${esc(r.ref)}</b><br>
         ${esc(e.host_name)} has ${r.hold_hours} hours to confirm. Save your reference.<br><br>
@@ -136,15 +155,62 @@ async function bookingLookup(ref) {
   const show = async (r) => {
     try {
       const b = await api('/api/bookings/' + encodeURIComponent(r));
+      const live = ['pending', 'confirmed'].includes(b.status);
       document.getElementById('lo').innerHTML = `<div class="card" style="margin-top:12px">
         <a class="title" href="#/x/${b.experience_id}">${esc(b.title)}</a>
         <p>${fmtDate(b.date)} · ${b.party_size} people · ${esc(b.name)}</p>
         <p>Status: <span class="status ${b.status}">${b.status}</span></p>
-        ${b.status === 'expired' ? '<p class="small muted">The guide did not respond in time. Your seats were released — please pick another date.</p>' : ''}</div>`;
+        <p>Total $${b.amount_usd} · ${PAY_LABEL[b.payment_method]} · <span class="small muted">${payText(b)}</span></p>
+        ${b.checkout_url ? `<p><a href="${esc(b.checkout_url)}"><button type="button">Complete payment</button></a>
+          <span class="small muted">Unpaid requests are released after a short time.</span></p>` : ''}
+        ${b.status === 'expired' ? '<p class="small muted">This request expired (unpaid or not answered in time). Any card hold was released — please pick another date.</p>' : ''}
+        ${live ? `<p class="small muted">Free cancellation until ${fmtDate(b.free_cancel_until)}${b.payment_method === 'online' ? ' — full refund' : ''}. After that, online payments are not refunded.</p>
+          <form class="row" id="cf"><input name="contact" required placeholder="Contact you booked with"><button class="danger">Cancel booking</button></form>` : ''}
+        <div id="co"></div></div>`;
+      const cf = document.getElementById('cf');
+      if (cf) cf.onsubmit = async (ev) => {
+        ev.preventDefault();
+        const late = b.status === 'confirmed' && b.payment_method === 'online' && new Date().toISOString().slice(0, 10) > b.free_cancel_until;
+        if (!confirm(late ? 'You are past the free-cancellation date. You will NOT be refunded. Cancel anyway?' : 'Cancel this booking?')) return;
+        try {
+          const r2 = await api(`/api/bookings/${encodeURIComponent(b.ref)}/cancel`, { method: 'POST', body: Object.fromEntries(new FormData(cf)) });
+          await show(b.ref);
+          document.getElementById('co').innerHTML = msg(r2.message);
+        } catch (err) { document.getElementById('co').innerHTML = msg(err.message, 'err'); }
+      };
     } catch (err) { document.getElementById('lo').innerHTML = msg(err.message, 'err'); }
   };
   lf.onsubmit = (ev) => { ev.preventDefault(); location.hash = '#/booking/' + new FormData(lf).get('ref').trim(); };
   if (ref) show(ref);
+}
+
+// ---------- Payment helpers + mock checkout ----------
+const PAY_LABEL = { online: 'Paid online', cash: 'Cash to guide' };
+function payText(b) {
+  if (b.payment_method === 'cash') return b.status === 'confirmed' ? 'pay the guide on the day' : 'no prepayment';
+  return {
+    awaiting: 'payment not completed', authorized: 'card held, charged when the guide confirms', captured: 'charged',
+    voided: 'card hold released — not charged', refunded: 'refunded', failed: 'payment failed', none: '',
+  }[b.payment_status];
+}
+
+// Stand-in for Stripe Checkout when the server runs with PAYMENT_PROVIDER=mock.
+async function mockPay(ref) {
+  const b = await api('/api/bookings/' + encodeURIComponent(ref));
+  $app.innerHTML = `<div class="card" style="max-width:420px;margin:24px auto">
+    <p class="small muted">TEST CHECKOUT — no real money moves</p>
+    <h1>$${b.amount_usd}</h1>
+    <p>${esc(b.title)}<br>${fmtDate(b.date)} · ${b.party_size} people</p>
+    <p class="small muted">Your card is authorized now and only charged when the guide confirms.</p>
+    ${b.checkout_url ? `<div class="row"><button id="ok">Pay $${b.amount_usd}</button><button class="ghost" id="fail">Simulate declined card</button></div>`
+      : msg('This booking is not awaiting payment.', 'err')}
+    <div id="po"></div></div>`;
+  const go = async (outcome) => {
+    try { await api('/api/payments/mock/' + encodeURIComponent(ref), { method: 'POST', body: { outcome } }); location.hash = '#/booking/' + ref; }
+    catch (err) { document.getElementById('po').innerHTML = msg(err.message, 'err'); }
+  };
+  document.getElementById('ok')?.addEventListener('click', () => go('success'));
+  document.getElementById('fail')?.addEventListener('click', () => go('fail'));
 }
 
 // ---------- Host dashboard ----------
@@ -159,20 +225,35 @@ async function host() {
   const ageH = (b) => Math.floor((Date.now() - Date.parse(b.created_at.replace(' ', 'T') + 'Z')) / 36e5);
   $app.innerHTML = `
     <div class="row" style="justify-content:space-between"><h1>Hi, ${esc(d.host.name)}</h1><button class="ghost" id="logout">Log out</button></div>
+    <div class="grid" style="margin-top:12px">
+      <div class="card"><div class="small muted">Payout due to you (online bookings)</div><div class="price">$${d.earnings.payout_due_usd}</div>
+        <div class="small muted">After ${d.earnings.commission_pct}% commission</div></div>
+      <div class="card"><div class="small muted">Commission you owe (cash bookings)</div><div class="price">$${d.earnings.commission_due_usd}</div>
+        <div class="small muted">${d.earnings.commission_pct}% of confirmed cash trips</div></div>
+    </div>
     <h2>Requests waiting (${pending.length})</h2>
-    <p class="small muted">Requests expire after ${d.hold_hours}h without an answer and the seats are released.</p>
-    <div class="scroll"><table><tr><th>Ref</th><th>Trip</th><th>Date</th><th>Guest</th><th>People</th><th>Status</th><th></th></tr>
-    ${d.bookings.map((b) => `<tr><td>${esc(b.ref)}</td><td>${esc(b.title)}</td><td>${fmtDate(b.date)}</td>
+    <p class="small muted">Requests expire after ${d.hold_hours}h without an answer: seats are released and card holds voided.</p>
+    <div class="scroll"><table><tr><th>Ref</th><th>Trip</th><th>Date</th><th>Guest</th><th>People</th><th>Payment</th><th>Status</th><th></th></tr>
+    ${d.bookings.map((b) => {
+      const unpaid = b.payment_method === 'online' && b.payment_status === 'awaiting';
+      return `<tr><td>${esc(b.ref)}</td><td>${esc(b.title)}</td><td>${fmtDate(b.date)}</td>
       <td>${esc(b.name)}<br><span class="small muted">${esc(b.contact)}</span>${b.message ? `<br><span class="small">“${esc(b.message)}”</span>` : ''}</td>
-      <td>${b.party_size}</td><td><span class="status ${b.status}">${b.status}</span>${b.status === 'pending' ? `<br><span class="small muted">${d.hold_hours - ageH(b)}h left</span>` : ''}</td>
-      <td class="row">${b.status === 'pending' ? `<button data-act="confirm" data-id="${b.id}">Confirm</button><button class="danger" data-act="decline" data-id="${b.id}">Decline</button>` : ''}
-        ${b.status === 'confirmed' ? `<button class="danger" data-act="cancel" data-id="${b.id}">Cancel</button>` : ''}</td></tr>`).join('') || '<tr><td colspan="7" class="muted">No bookings yet.</td></tr>'}
+      <td>${b.party_size}</td><td>$${b.amount_usd}<br><span class="small muted">${PAY_LABEL[b.payment_method]}<br>${payText(b)}</span></td>
+      <td><span class="status ${b.status}">${b.status}</span>${b.status === 'pending' ? `<br><span class="small muted">${d.hold_hours - ageH(b)}h left</span>` : ''}</td>
+      <td class="row">${b.status === 'pending' ? `<button data-act="confirm" data-id="${b.id}" ${unpaid ? 'disabled title="Waiting for guest payment"' : ''}>Confirm</button><button class="danger" data-act="decline" data-id="${b.id}">Decline</button>` : ''}
+        ${b.status === 'confirmed' ? `<button class="danger" data-act="cancel" data-id="${b.id}">Cancel</button>` : ''}</td></tr>`;
+    }).join('') || '<tr><td colspan="8" class="muted">No bookings yet.</td></tr>'}
     </table></div>
     <div id="hmsg"></div>
 
     <h2>Your experiences</h2>
     ${d.experiences.map((e) => `<div class="card" style="margin-bottom:12px">
       <a class="title" href="#/x/${e.id}">${esc(e.title)}</a> <span class="small muted">· $${e.price_usd} · season ${season(e)}</span>
+      <form class="row small" data-pay="${e.id}" style="margin:8px 0">
+        <label><input type="checkbox" name="accepts_online" ${e.accepts_online ? 'checked' : ''}> Online payment</label>
+        <label><input type="checkbox" name="accepts_cash" ${e.accepts_cash ? 'checked' : ''}> Cash</label>
+        <label>Free cancel until <input type="number" name="free_cancel_days" min="0" max="90" value="${e.free_cancel_days}" style="width:64px"> days before</label>
+        <button class="ghost">Save</button></form>
       ${e.waitlist.length ? `<p class="small"><b>${e.waitlist.length} on waitlist:</b> ${e.waitlist.map((w) => esc(w.contact)).join(', ')}</p>` : ''}
       <div class="dates" style="margin:8px 0">${e.departures.map((dp) => `<span class="date">${fmtDate(dp.date)}
         <small>${dp.seats_left}/${dp.seats_total} free · <a href="#" data-del="${dp.id}">remove</a></small></span>`).join('') || '<span class="muted small">No dates yet.</span>'}</div>
@@ -191,6 +272,9 @@ async function host() {
       <div class="row"><label>Season from <select name="season_start">${MONTHS.map((m, i) => `<option value="${i + 1}" ${i === 5 ? 'selected' : ''}>${m}</option>`).join('')}</select></label>
         <label>to <select name="season_end">${MONTHS.map((m, i) => `<option value="${i + 1}" ${i === 8 ? 'selected' : ''}>${m}</option>`).join('')}</select></label></div>
       <label>Includes <input name="includes" placeholder="Guide, meals, tents..."></label>
+      <div class="row"><label class="row"><input type="checkbox" name="accepts_online" checked> Accept online payment</label>
+        <label class="row"><input type="checkbox" name="accepts_cash" checked> Accept cash</label></div>
+      <label>Free cancellation until <input name="free_cancel_days" type="number" min="0" max="90" value="7" style="width:80px"> days before the trip</label>
       <button>Create</button>
     </form>`;
 
@@ -207,10 +291,16 @@ async function host() {
     ev.preventDefault();
     try { await hapi(`/api/host/experiences/${f.dataset.dep}/departures`, { method: 'POST', body: Object.fromEntries(new FormData(f)) }); host(); } catch (err) { fail(err); }
   });
+  $app.querySelectorAll('[data-pay]').forEach((f) => f.onsubmit = async (ev) => {
+    ev.preventDefault();
+    const body = { accepts_online: f.accepts_online.checked, accepts_cash: f.accepts_cash.checked, free_cancel_days: f.free_cancel_days.value };
+    try { await hapi('/api/host/experiences/' + f.dataset.pay, { method: 'PATCH', body }); host(); } catch (err) { fail(err); }
+  });
   const nx = document.getElementById('nx');
   nx.onsubmit = async (ev) => {
     ev.preventDefault();
-    try { await hapi('/api/host/experiences', { method: 'POST', body: Object.fromEntries(new FormData(nx)) }); host(); } catch (err) { fail(err); }
+    const body = { ...Object.fromEntries(new FormData(nx)), accepts_online: nx.accepts_online.checked, accepts_cash: nx.accepts_cash.checked };
+    try { await hapi('/api/host/experiences', { method: 'POST', body }); host(); } catch (err) { fail(err); }
   };
 }
 
@@ -230,6 +320,7 @@ async function route() {
   try {
     if (parts[0] === 'x') await detail(parts[1]);
     else if (parts[0] === 'booking') await bookingLookup(parts[1]);
+    else if (parts[0] === 'pay') await mockPay(parts[1]);
     else if (parts[0] === 'host') await host();
     else await explore(new URLSearchParams(qs));
   } catch (err) { $app.innerHTML = msg(err.message, 'err'); }

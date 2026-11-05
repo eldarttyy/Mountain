@@ -27,7 +27,10 @@ CREATE TABLE IF NOT EXISTS experiences (
   difficulty TEXT NOT NULL CHECK (difficulty IN ('easy','moderate','hard')),
   season_start INTEGER NOT NULL,   -- month 1-12
   season_end INTEGER NOT NULL,     -- month 1-12
-  includes TEXT DEFAULT ''
+  includes TEXT DEFAULT '',
+  accepts_online INTEGER NOT NULL DEFAULT 1,
+  accepts_cash INTEGER NOT NULL DEFAULT 1,
+  free_cancel_days INTEGER NOT NULL DEFAULT 7   -- free cancellation until N days before
 );
 CREATE TABLE IF NOT EXISTS departures (
   id INTEGER PRIMARY KEY,
@@ -46,6 +49,19 @@ CREATE TABLE IF NOT EXISTS bookings (
   message TEXT DEFAULT '',
   status TEXT NOT NULL DEFAULT 'pending'
     CHECK (status IN ('pending','confirmed','declined','expired','cancelled')),
+  -- Like Booking.com: "pay now" (online) or "pay the guide" (cash on the day).
+  payment_method TEXT NOT NULL DEFAULT 'cash' CHECK (payment_method IN ('online','cash')),
+  -- online: awaiting -> authorized -> captured | voided | refunded | failed
+  -- cash:   none (guest pays guide; platform invoices guide its commission)
+  payment_status TEXT NOT NULL DEFAULT 'none'
+    CHECK (payment_status IN ('none','awaiting','authorized','captured','voided','refunded','failed')),
+  amount_usd INTEGER NOT NULL DEFAULT 0,
+  commission_usd INTEGER NOT NULL DEFAULT 0,
+  provider TEXT,
+  provider_ref TEXT,               -- checkout session id
+  provider_payment_id TEXT,        -- payment intent id (set once authorized)
+  checkout_url TEXT,               -- so a guest can resume an unfinished payment
+  cancelled_by TEXT,               -- 'guest' | 'host'
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 CREATE TABLE IF NOT EXISTS waitlist (
@@ -76,9 +92,12 @@ function seed() {
     [h2, 'Two Nights at Song-Kul Yurt Camp', 'yurt', 'Song-Kul', 'Sleep in a felt yurt at 3,000 m, eat with a herder family, watch the stars over the lake.', 2, 60, 'easy', 6, 9, 'Yurt bed, 3 meals/day, kumis tasting'],
     [h3, 'Kochkor to Song-Kul Horse Trek', 'horse', 'Song-Kul', 'Ride over the Kilemche jailoo to Song-Kul in 3 days, nights in shepherd yurts.', 3, 210, 'moderate', 6, 9, 'Horse, horseman-guide, yurt nights, meals'],
   ];
+  // The yurt camp is cash-only, to demo per-host payment settings.
+  const cashOnlyTitle = 'Two Nights at Song-Kul Yurt Camp';
   const nextYear = new Date().getFullYear() + 1;
   for (const e of exps) {
     const id = addExp.run(...e).lastInsertRowid;
+    if (e[1] === cashOnlyTitle) db.prepare('UPDATE experiences SET accepts_online = 0 WHERE id = ?').run(id);
     // Weekly departures across the season next year.
     const [start, end] = [e[8], e[9]];
     for (let m = start; m <= end; m++) {

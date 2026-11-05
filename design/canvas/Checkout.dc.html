@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PeakBook — Checkout, payment step</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F7F4ED}
+*{box-sizing:border-box}
+a{color:#173F35}a:hover{color:#0E2A23}
+:focus-visible{outline:3px solid #173F35;outline-offset:3px}
+input[type=radio]{width:22px;height:22px;accent-color:#173F35;margin:0}
+</style>
+</helmet>
+<div style="font-family: Inter, system-ui, sans-serif; color: #202925; font-size: 16px; line-height: 1.55; background: #F7F4ED; padding-bottom: 80px">
+<header style="border-bottom: 1px solid #E3DDD0">
+  <div style="max-width: 1180px; margin: 0 auto; padding: 16px 32px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px">
+    <a href="Main.dc.html" style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 28px; font-weight: 600; text-decoration: none; color: #173F35">PeakBook</a>
+    <ol aria-label="Booking steps" style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 24px; font-size: 14px">
+      <li style="color: #57605B">1 Trip ✓</li><li style="color: #57605B">2 Your details ✓</li><li aria-current="step" style="font-weight: 600; border-bottom: 2px solid #173F35">3 Payment &amp; review</li><li style="color: #57605B">4 Status</li>
+    </ol>
+    <span style="font-size: 13px; color: #57605B">Progress saved on this device</span>
+  </div>
+</header>
+
+<div style="max-width: 1180px; margin: 0 auto; padding: 36px 32px 0; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
+  <main style="flex: 999 1 560px; min-width: 0; display: grid; gap: 28px">
+    <h1 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 48px; font-weight: 600; line-height: 1.05; color: #173F35">How would you like to pay?</h1>
+
+    <fieldset style="border: 0; padding: 0; margin: 0; display: grid; gap: 14px">
+      <legend style="position: absolute; width: 1px; height: 1px; overflow: hidden">Payment method</legend>
+
+      <label style="display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; gap: 14px; border: 2px solid #173F35; border-radius: 18px; padding: 22px; background: #FFFDF8; cursor: pointer">
+        <input type="radio" name="pm" checked style="margin-top: 2px">
+        <span style="display: grid; gap: 6px">
+          <b style="font-size: 18px">Pay online</b>
+          <span style="color: #3A433E">Your card is <b>authorized</b> for 48,600 KGS when you send the request. You are <b>charged only when Aibek confirms</b>. If he declines or doesn't reply within 48 h, the authorization is canceled and nothing is charged — your bank usually removes the hold within 5–10 days.</span>
+          <span style="font-size: 14px; color: #57605B">Visa, Mastercard · charged in KGS · your bank may add a conversion fee</span>
+        </span>
+        <span style="text-align: right; font-variant-numeric: tabular-nums"><b>48,600 KGS</b><br><span style="font-size: 13px; color: #57605B">authorized now</span></span>
+      </label>
+
+      <label style="display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; gap: 14px; border: 1px solid #D6CFBF; border-radius: 18px; padding: 22px; background: #FFFDF8; cursor: pointer">
+        <input type="radio" name="pm" style="margin-top: 2px">
+        <span style="display: grid; gap: 6px">
+          <b style="font-size: 18px">Pay the host</b>
+          <span style="color: #3A433E">Nothing is paid online. Pay Aibek <b>48,600 KGS in cash</b> at the 07:30 pickup on Sat 3 Jul. KGS only; ATMs in Karakol.</span>
+          <span style="font-size: 14px; color: #57605B">Your request still needs Aibek's approval within 48 h.</span>
+        </span>
+        <span style="text-align: right; font-variant-numeric: tabular-nums"><b>0 KGS</b><br><span style="font-size: 13px; color: #57605B">now · 48,600 on 3 Jul</span></span>
+      </label>
+
+      <div style="display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; gap: 14px; border: 1px dashed #B9B09D; border-radius: 18px; padding: 22px; background: transparent">
+        <span aria-hidden="true" style="width: 22px; height: 22px; border-radius: 11px; border: 2px solid #B9B09D; margin-top: 2px"></span>
+        <span style="display: grid; gap: 6px">
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #8A5A17">Design state · shown only when the host requires a deposit</span>
+          <b style="font-size: 18px; color: #3A433E">Deposit online, rest to the host</b>
+          <span style="color: #3A433E"><b>Due now: 7,300 KGS deposit</b> (authorized now, charged when confirmed). <b>Remaining: 41,300 KGS</b> in cash to the host on 3 Jul. The deposit is refundable until 26 Jun.</span>
+        </span>
+        <span style="text-align: right; font-variant-numeric: tabular-nums; color: #3A433E"><b>7,300 KGS</b><br><span style="font-size: 13px">now</span></span>
+      </div>
+    </fieldset>
+
+    <section style="border-top: 1px solid #E3DDD0; padding-top: 24px; display: grid; gap: 10px">
+      <h2 style="margin: 0; font-size: 20px">What happens after you request</h2>
+      <ol style="margin: 0; padding-left: 22px; display: grid; gap: 6px; color: #3A433E">
+        <li><b>Your 3 seats are held for 48 h</b> (until Mon 10 May, 14:20 Bishkek time). Other travelers can't take them.</li>
+        <li><b>Your card is authorized, not charged.</b> The seat hold and the card authorization are separate: the hold ends at 48 h; the authorization is canceled the moment the request ends.</li>
+        <li>Aibek confirms → we charge 48,600 KGS and send the meeting details. Aibek declines or doesn't reply → nothing is charged and we suggest other dates.</li>
+      </ol>
+    </section>
+
+    <label style="display: flex; gap: 12px; align-items: flex-start; font-size: 15px"><input type="checkbox" checked style="width: 22px; height: 22px; accent-color: #173F35; margin: 0"> I've read the cancellation, weather and refund terms and the fitness requirements for a 3,860 m pass.</label>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center">
+      <a href="A4Awaiting.dc.html" style="display: inline-flex; align-items: center; min-height: 56px; padding: 0 32px; border-radius: 14px; background: #173F35; color: #F7F4ED; font-weight: 600; text-decoration: none; font-size: 17px">Request booking</a>
+      <span style="font-size: 14px; color: #3A433E">You'll see an authorization of 48,600 KGS. No charge until confirmed.</span>
+    </div>
+  </main>
+
+  <aside aria-label="Booking summary" style="flex: 1 1 340px; max-width: 400px; position: sticky; top: 24px; border: 1px solid #E3DDD0; border-radius: 20px; background: #FFFDF8; overflow: hidden">
+    <img src="/_blob/6514768c259ead1e4dc29b8aa47d2610" alt="" style="width: 100%; height: 150px; object-fit: cover; display: block">
+    <div style="padding: 22px; display: grid; gap: 14px">
+      <div><b style="font-size: 18px">Ala-Kul Lake Pass Trek</b><br><span style="font-size: 14px; color: #57605B">With Aibek · Sat 3 Jul – Mon 5 Jul 2027 · 3 travelers</span></div>
+      <div style="display: grid; gap: 6px; font-variant-numeric: tabular-nums; font-size: 15px; border-top: 1px solid #E3DDD0; padding-top: 14px">
+        <span style="display: flex; justify-content: space-between"><span>15,500 × 3 travelers</span><span>46,500</span></span>
+        <span style="display: flex; justify-content: space-between"><span>Hotel pickup · per group</span><span>1,500</span></span>
+        <span style="display: flex; justify-content: space-between"><span>Sleeping bag rental × 1</span><span>600</span></span>
+        <span style="display: flex; justify-content: space-between; color: #57605B"><span>Meals, tents, park fee</span><span>included</span></span>
+        <span style="display: flex; justify-content: space-between; color: #57605B"><span>PeakBook service fee</span><span>0</span></span>
+        <span style="display: flex; justify-content: space-between; font-weight: 600; font-size: 19px; border-top: 1px solid #E3DDD0; padding-top: 10px; margin-top: 4px"><span>Total</span><span>48,600 KGS</span></span>
+        <span style="font-size: 13px; color: #57605B">≈ US$555 · €481 at a sample rate. Estimate only — the actual charge is in KGS.</span>
+      </div>
+      <div style="display: grid; gap: 4px; font-size: 14px; border-top: 1px solid #E3DDD0; padding-top: 14px">
+        <b>Due now: 0 KGS charged</b>
+        <span style="color: #3A433E">48,600 KGS authorized · charged when Aibek confirms</span>
+      </div>
+      <p style="margin: 0; font-size: 14px; color: #3A433E">Free cancellation until Sat 26 Jun. <a href="#">Full terms</a></p>
+    </div>
+  </aside>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1850}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
